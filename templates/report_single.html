@@ -419,19 +419,24 @@ function filter_table(elem) {
     <h2>Summary</h2>
     <p>{{ n_total }} tests ran in {{ duration }} seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
+
+{% for race in races %}
+    <h2>Race {{ race.name }}</h2>
+    <p>{{ race.n_total }} tests ran. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
     <h2>Results</h2>
     <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
-    <span class="passed">{{ n_passed }} passed</span>, 
+    <span class="passed">{{ race.n_passed }} passed</span>, 
     <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
-    <span class="skipped">{{ n_skipped }} skipped</span>, 
+    <span class="skipped">{{ race.n_skipped }} skipped</span>, 
     <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
-    <span class="failed">{{ n_failed }} failed</span>, 
+    <span class="failed">{{ race.n_failed }} failed</span>, 
     <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
-    <span class="error">{{ n_errors }} errors</span>, 
+    <span class="error">{{ race.n_errors }} errors</span>, 
     <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
-    <span class="xfailed">{{ n_xfail }} expected failures</span>, 
+    <span class="xfailed">{{ race.n_xfail }} expected failures</span>, 
     <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
-    <span class="xpassed">{{ n_xpass }} unexpected passes</span>
+    <span class="xpassed">{{ race.n_xpass }} unexpected passes</span>
     <table class="results-table" id="_default-results-table">
       <thead id="_default-results-table-head">
         <tr>
@@ -442,7 +447,7 @@ function filter_table(elem) {
         <tr hidden="true" id="_default-not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
 
-{% for test_fail in tests_fail %}
+    {% for test_fail in race.tests_fail %}
     <tbody class="failed results-table-row">
         <tr>
             <td class="col-result">{{ test_fail.result }}</td>
@@ -455,8 +460,8 @@ function filter_table(elem) {
             </td>
         </tr>
     </tbody>
-{% endfor %}
-{% for test_pass in tests_pass %}
+    {% endfor %}
+    {% for test_pass in race.tests_pass %}
     <tbody class="passed results-table-row">
         <tr>
             <td class="col-result">{{ test_pass.result }}</td>
@@ -469,6 +474,7 @@ function filter_table(elem) {
             </td>
         </tr>
     </tbody>
+    {% endfor %}
+    </table>
 {% endfor %}
-
-    </table></body></html>
+</body></html>

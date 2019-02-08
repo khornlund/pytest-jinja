@@ -24,9 +24,36 @@ def read_json(json_f):
     }
 
     tests = get_tests(data)
-    context['tests_pass'] = get_passes(tests)
-    context['tests_fail'] = get_fails(tests)
+    sort_by_race = sort_tests(tests, 'random_seed')
+    races = [create_race(key, val) for key, val in sort_by_race.items()]
+    context['races'] = races
+
     return context
+
+def create_race(name, tests):
+    d = {'name': name}
+    d['tests_pass'] = get_passes(tests)
+    d['tests_fail'] = get_fails(tests)
+    d['n_passed'] = len(d['tests_pass'])
+    d['n_failed'] = len(d['tests_fail'])
+    d['n_skipped']: 0  # TODO
+    d['n_errors']: 0  # TODO
+    d['n_xfail']: 0  # TODO
+    d['n_xpass']: 0  # TODO
+    d['n_total'] = len(tests)
+    d['all_pass'] = d['n_failed'] == 0
+    return d
+
+
+def sort_tests(tests, criteria):
+    groups = {}
+    for test in tests:
+        key = test[criteria]
+        if key in groups.keys():
+            groups[key].append(test)
+        else:
+            groups[key] = [test]
+    return groups
 
 
 def parse_test(test):
