@@ -419,7 +419,19 @@ function filter_table(elem) {
     <h2>Summary</h2>
     <p>{{ n_total }} tests ran in {{ duration }} seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
-    <h2>Results</h2><input checked="true" class="filter" data-prefix-id="_default-" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">{{ n_passed }} passed</span>, <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">{{ n_skipped }} skipped</span>, <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">{{ n_failed }} failed</span>, <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">{{ n_errors }} errors</span>, <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">{{ n_xfail }} expected failures</span>, <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">{{ n_xpass }} unexpected passes</span>
+    <h2>Results</h2>
+    <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
+    <span class="passed">{{ n_passed }} passed</span>, 
+    <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
+    <span class="skipped">{{ n_skipped }} skipped</span>, 
+    <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
+    <span class="failed">{{ n_failed }} failed</span>, 
+    <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
+    <span class="error">{{ n_errors }} errors</span>, 
+    <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
+    <span class="xfailed">{{ n_xfail }} expected failures</span>, 
+    <input checked="true" class="filter" data-prefix-id="_default-" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/>
+    <span class="xpassed">{{ n_xpass }} unexpected passes</span>
     <table class="results-table" id="_default-results-table">
       <thead id="_default-results-table-head">
         <tr>
@@ -434,7 +446,7 @@ function filter_table(elem) {
     <tbody class="failed results-table-row">
         <tr>
             <td class="col-result">{{ test_fail.result }}</td>
-            <td class="col-name">{{ test_fail.nodeid }}}</td>
+            <td class="col-name">{{ test_fail.nodeid }}</td>
             <td class="col-duration">{{ test_fail.duration }}</td>
             <td class="col-links"></td></tr>
         <tr>
@@ -444,12 +456,11 @@ function filter_table(elem) {
         </tr>
     </tbody>
 {% endfor %}
-
 {% for test_pass in tests_pass %}
     <tbody class="passed results-table-row">
         <tr>
             <td class="col-result">{{ test_pass.result }}</td>
-            <td class="col-name">{{ test_pass.nodeid }}}</td>
+            <td class="col-name">{{ test_pass.nodeid }}</td>
             <td class="col-duration">{{ test_pass.duration }}</td>
             <td class="col-links"></td></tr>
         <tr>

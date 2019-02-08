@@ -10,7 +10,7 @@ def read_json(json_f):
 
     context = {
         'report_name': 'Race Test Report',
-        'report_datatime': datetime.fromtimestamp(data['created']).strftime("%Y-%m-%d %I:%M:%S"),
+        'report_datetime': datetime.fromtimestamp(data['created']).strftime("%Y-%m-%d %I:%M:%S"),
         'duration': data['duration'],
         'operating_system': data['environment']['Platform'],
         'python_version': data['environment']['Python'],
@@ -34,9 +34,9 @@ def parse_test(test):
     d['nodeid'] = test['nodeid']
     d['result'] = test['outcome']
     d['random_seed'] = test['metadata']['random_seed']
-    d['duration'] = (test['setup']['duration'] + 
+    d['duration'] = round(test['setup']['duration'] + 
                      test['call']['duration'] + 
-                     test['teardown']['duration'])
+                     test['teardown']['duration'], 3)
     try:
         d['log'] = test['call']['longrepr']
     except:
