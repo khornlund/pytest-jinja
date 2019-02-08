@@ -1,42 +1,63 @@
 from jinja2 import Environment, FileSystemLoader
 import os
-
-class Test:
-
-    @classmethod
-    def to_dict(cls, result, name, duration, log):
-        return {
-            'result': result,
-            'name': name,
-            'duration': duration,
-            'log': log
-        }
+import json
+from datetime import datetime
 
 
-class Data:
+def read_json(json_f):
+    with open(json_f) as fh:
+        data = json.load(fh)
 
-    @classmethod
-    def to_dict(cls):
-        return {
-            'report_name'         : 'TestReport',
-            'report_datetime'     : '2019-02-07 21:53:00',
-            'username'            : 'KarlHornlund',
-            'operating_system'    : 'Windows10',
-            'python_version'      : '3.6.6',
-            'n_tests'             : '4',
-            'runtime'             : '1.05s',
-            'tests_fail': [
-                Test.to_dict('Failed', 'tests/tests.py::test_example[1]', 0.03, 'Reason'),
-                Test.to_dict('Failed', 'tests/tests.py::test_example[3]', 0.01, 'Reason')
-            ],
-            'tests_pass': [
-                Test.to_dict('Passed', 'tests/tests.py::test_example[0]', 0.02, ''),
-                Test.to_dict('Passed', 'tests/tests.py::test_example[2]', 0.01, ''),
-            ]
-        }
+    context = {
+        'report_name': 'Race Test Report',
+        'report_datatime': datetime.fromtimestamp(data['created']).strftime("%Y-%m-%d %I:%M:%S"),
+        'duration': data['duration'],
+        'operating_system': data['environment']['Platform'],
+        'python_version': data['environment']['Python'],
+        'n_passed': data['summary']['passed'],
+        'n_failed': data['summary']['failed'],
+        'n_skipped': 0,  # TODO
+        'n_errors': 0,  # TODO
+        'n_xfail': 0,  # TODO
+        'n_xpass': 0,  # TODO
+        'n_total': data['summary']['total']
+    }
+
+    tests = get_tests(data)
+    context['tests_pass'] = get_passes(tests)
+    context['tests_fail'] = get_fails(tests)
+    return context
+
+
+def parse_test(test):
+    d = {}
+    d['nodeid'] = test['nodeid']
+    d['result'] = test['outcome']
+    d['random_seed'] = test['metadata']['random_seed']
+    d['duration'] = (test['setup']['duration'] + 
+                     test['call']['duration'] + 
+                     test['teardown']['duration'])
+    try:
+        d['log'] = test['call']['longrepr']
+    except:
+        d['log'] = 'No log found.'
+    return d
+
+
+def get_tests(data):
+    return [parse_test(test) for test in data['tests']]
+
+
+def get_passes(tests):
+    return [test for test in tests if test['result'] == 'passed']
+
+
+def get_fails(tests):
+    return [test for test in tests if test['result'] == 'failed']   
+
 
 if __name__ == '__main__':
-    data = Data.to_dict()
+    data = read_json('resources/report.json')
     env = Environment( loader = FileSystemLoader('templates'))
     template = env.get_template('report_single.html')
 
