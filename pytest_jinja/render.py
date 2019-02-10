@@ -9,18 +9,20 @@ def read_json(json_f):
         data = json.load(fh)
 
     context = {
-        'report_name': 'Race Test Report',
-        'report_datetime': datetime.fromtimestamp(data['created']).strftime("%Y-%m-%d %I:%M:%S"),
-        'duration': data['duration'],
+        'report_name'     : 'Race Test Report',
+        'report_datetime' : datetime.\
+                                fromtimestamp(data['created']).\
+                                strftime("%Y-%m-%d %I:%M:%S"),
+        'duration'        : data['duration'],
         'operating_system': data['environment']['Platform'],
-        'python_version': data['environment']['Python'],
-        'n_passed': data['summary']['passed'],
-        'n_failed': data['summary']['failed'],
-        'n_skipped': 0,  # TODO
-        'n_errors': 0,  # TODO
-        'n_xfail': 0,  # TODO
-        'n_xpass': 0,  # TODO
-        'n_total': data['summary']['total']
+        'python_version'  : data['environment']['Python'],
+        'n_passed'        : data['summary']['passed'],
+        'n_failed'        : data['summary']['failed'],
+        'n_skipped'       : 0,  # TODO
+        'n_errors'        : 0,  # TODO
+        'n_xfail'         : 0,  # TODO
+        'n_xpass'         : 0,  # TODO
+        'n_total'         : data['summary']['total']
     }
 
     tests = get_tests(data)
@@ -32,28 +34,29 @@ def read_json(json_f):
 
 def create_race(name, tests):
     d = {
-        'name':      name,
-        'tests':     tests,
-        'n_passed':  sum([1 for test in tests if test['result'] == 'passed']),
-        'n_failed':  sum([1 for test in tests if test['result'] == 'failed']),
+        'name'     : name,
+        'tests'    : tests,
+        'n_passed' : sum([1 for test in tests if test['result'] == 'passed']),
+        'n_failed' : sum([1 for test in tests if test['result'] == 'failed']),
         'n_skipped': sum([1 for test in tests if test['result'] == 'skipped']),
-        'n_errors':  sum([1 for test in tests if test['result'] == 'error']),
-        'n_xfail':   sum([1 for test in tests if test['result'] == 'xfail']),
-        'n_xpass':   sum([1 for test in tests if test['result'] == 'xpass']),
-        'n_total':   len(tests)
+        'n_errors' : sum([1 for test in tests if test['result'] == 'error']),
+        'n_xfail'  : sum([1 for test in tests if test['result'] == 'xfail']),
+        'n_xpass'  : sum([1 for test in tests if test['result'] == 'xpass']),
+        'n_total'  : len(tests)
     }
     d['all_pass'] = d['n_failed'] == 0
     return d
 
 
 def parse_test(test):
-    d = {}
-    d['nodeid'] = test['nodeid']
-    d['result'] = test['outcome']
-    d['random_seed'] = test['metadata']['random_seed']
-    d['duration'] = round(test['setup']['duration'] + 
-                     test['call']['duration'] + 
-                     test['teardown']['duration'], 3)
+    d = {
+        'nodeid'      : test['nodeid'],
+        'result'      : test['outcome'],
+        'random_seed' : test['metadata']['random_seed'],
+        'duration'    : round(test['setup']['duration'] + 
+                              test['call']['duration'] + 
+                              test['teardown']['duration'], 3)
+    }
     try:
         d['log'] = test['call']['longrepr']
     except:
