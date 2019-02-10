@@ -1,0 +1,46 @@
+{% extends "report.html" %}
+{% block results %}
+<h1>Results</h1>
+{% for race in races %}
+<h2>Race {{ race.name }}</h2>
+<p>{{ race.n_total }} tests ran. </p>
+<p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
+<h2>Results</h2>
+{% macro checkbox(type, n) -%}
+<input 
+    checked="true" 
+    class="filter" 
+    data-prefix-id="_default-" 
+    data-test-result="{{ type }}" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="{{ type }}">{{ n }} {{ type }}</span>
+{%- endmacro %}
+{{ checkbox('passed',  race.n_passed) }},
+{{ checkbox('skipped', race.n_skipped) }},
+{{ checkbox('failed',  race.n_failed) }},
+{{ checkbox('error',   race.n_errors) }},
+{{ checkbox('xfailed', race.n_xfail) }},
+{{ checkbox('xpassed', race.n_xpass) }}
+
+<table class="results-table" id="_default-results-table">
+    <thead id="_default-results-table-head">
+        <tr>
+            <th class="sortable result initial-sort" col="result">Result</th>
+            <th class="sortable" col="name">Test</th>
+            <th class="sortable numeric" col="duration">Duration</th>
+            <th>Links</th>
+        </tr>
+        <tr hidden="true" id="_default-not-found-message">
+            <th colspan="4">No results found. Try to check the filters</th>
+        </tr>
+    </thead>
+    {% for test in race.tests -%}
+        {% block table_row scoped -%}{%- endblock %}
+    {%- endfor %}
+</table>
+{% endfor %}
+{% endblock %}
