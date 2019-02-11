@@ -38,12 +38,12 @@ function sort_column(elem) {
     sort_table(elem, key(colIndex));
 }
 
-function show_all_extras(table_id) {
-    find_all('.col-result', find('#' + table_id)).forEach(show_extras);
+function show_all_extras() {
+    find_all('.col-result').forEach(show_extras);
 }
 
-function hide_all_extras(table_id) {
-    find_all('.col-result', find('#' + table_id)).forEach(hide_extras);
+function hide_all_extras() {
+    find_all('.col-result').forEach(hide_extras);
 }
 
 function show_extras(colresult_elem) {
@@ -72,8 +72,8 @@ function add_collapse() {
     // Add links for show/hide all
     find_all('table.results-table').forEach(function(resulttable) {
         var showhideall = document.createElement("p");
-        showhideall.innerHTML = '<a href="javascript:show_all_extras(\'' + resulttable.id + '\')">Show all details</a> / ' +
-            '<a href="javascript:hide_all_extras(\'' + resulttable.id + '\')">Hide all details</a>';
+        showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
+            '<a href="javascript:hide_all_extras()">Hide all details</a>';
         resulttable.parentElement.insertBefore(showhideall, resulttable);
     });
 
@@ -120,7 +120,6 @@ function init () {
                                   sort_column(elem);
                               }, false)
     });
-
 };
 
 function sort_table(clicked, key_func) {
@@ -135,6 +134,7 @@ function sort_table(clicked, key_func) {
     var thead = find('thead', table);
     table.remove();
     var parent = document.createElement("table");
+    parent.classList.add("results-table");
     parent.id = table.id;
     parent.appendChild(thead);
     sorted_rows.forEach(function(elem) {
@@ -219,15 +219,30 @@ function filter_table(elem) {
     var outcome = elem.getAttribute(outcome_att);
     var class_outcome = outcome + " results-table-row";
     var prefix_id = elem.getAttribute("data-prefix-id");
-    var table = find("#" + prefix_id + "results-table");
-    var outcome_rows = table.getElementsByClassName(class_outcome);
+    var table = find_all("#" + prefix_id + "results-table");
+
+    var outcome_rows = [];
+    for (var i = 0; i < table.length; i++) {
+        outcome_rows = outcome_rows.concat(Array.from(table[i].getElementsByClassName(class_outcome)));
+    }
 
     for(var i = 0; i < outcome_rows.length; i++){
         outcome_rows[i].hidden = !elem.checked;
     }
 
-    var rows = find_all('.results-table-row', table).filter(is_all_rows_hidden);
+    var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
     var all_rows_hidden = rows.length == 0 ? true : false;
     var not_found_message = document.getElementById(prefix_id + "not-found-message");
     not_found_message.hidden = !all_rows_hidden;
+
+    update_check_boxes(elem.checked, outcome);
+}
+
+function update_check_boxes(checked_status, outcome) {
+    var data_att = "[data-test-result='" + outcome + "']";
+    var check_boxes = document.querySelectorAll(data_att);
+
+    check_boxes.forEach(function(element) { 
+        element.checked = checked_status;
+    });
 }
