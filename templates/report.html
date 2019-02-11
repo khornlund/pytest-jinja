@@ -22,7 +22,25 @@
             <td>{{ python_version }}</td>
         </tr>
     </table>
+
     <h2>Summary</h2>
+    <table class="summary-table">
+            <tr>
+                <th>Race</th>
+                <th>Result</th>
+            </tr>
+            
+            {% for race in races -%}
+            <tr>
+                <td>Race {{ race.name }}</td>
+                <td class="summary-result">{{ race.all_pass }}</td>
+            </tr>
+            {%- endfor %}
+        </table>
+
+
+
+
     <p>{{ n_total }} tests ran in {{ duration }} seconds. </p>
     {% block results %}{% endblock %}
 </body>
