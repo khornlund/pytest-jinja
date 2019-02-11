@@ -105,7 +105,7 @@ function get_query_parameter(name) {
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-function init () {
+function init() {
     reset_sort_headers();
 
     add_collapse();
@@ -120,6 +120,8 @@ function init () {
                                   sort_column(elem);
                               }, false)
     });
+
+    set_summary_result();
 };
 
 function sort_table(clicked, key_func) {
@@ -244,5 +246,19 @@ function update_check_boxes(checked_status, outcome) {
 
     check_boxes.forEach(function(element) { 
         element.checked = checked_status;
+    });
+}
+
+function set_summary_result() {
+    var results = document.querySelectorAll(".summary-result");
+    
+    results.forEach(function(element) {
+        if (element.innerHTML == "True") {
+            element.innerHTML = "passed";
+            element.classList.add("passed");
+        } else {
+            element.innerHTML = "failed";
+            element.classList.add("failed");
+        }
     });
 }

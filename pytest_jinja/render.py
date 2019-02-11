@@ -102,7 +102,6 @@ def get_passes(tests):
 def get_fails(tests):
     return [test for test in tests if test['result'] == 'failed']   
 
-
 if __name__ == '__main__':
     data = read_json('resources/report.json')
     env = Environment( loader = FileSystemLoader('templates') )
