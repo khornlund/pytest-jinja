@@ -218,8 +218,8 @@ function filter_table(elem) {
     var outcome_att = "data-test-result";
     var outcome = elem.getAttribute(outcome_att);
     var class_outcome = outcome + " results-table-row";
-    var prefix_id = elem.getAttribute("data-prefix-id");
-    var table = find_all("#" + prefix_id + "results-table");
+    var suffix_id = elem.getAttribute("data-suffix-id");
+    var table = find_all(".results-table");
 
     var outcome_rows = [];
     for (var i = 0; i < table.length; i++) {
@@ -232,7 +232,7 @@ function filter_table(elem) {
 
     var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
     var all_rows_hidden = rows.length == 0 ? true : false;
-    var not_found_message = document.getElementById(prefix_id + "not-found-message");
+    var not_found_message = document.getElementById("not-found-message" + suffix_id);
     not_found_message.hidden = !all_rows_hidden;
 
     update_check_boxes(elem.checked, outcome);
