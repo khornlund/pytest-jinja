@@ -1,9 +1,13 @@
 {% extends "report.html" %}
 {% block results %}
 <h1>Results</h1>
-{% for race in races %}
+
+{% for race in races -%}
 <h2>Race {{ race.name }}</h2>
 <p>{{ race.n_total }} tests ran. </p>
+
+{% for model_set in race.model_sets -%}
+<h2>Tests for {{ model_set.name }}</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
 {% macro checkbox(type, n) -%}
@@ -19,12 +23,12 @@
 />
 <span class="{{ type }}">{{ n }} {{ type }}</span>
 {%- endmacro %}
-{{ checkbox('passed',  race.n_passed) }},
-{{ checkbox('skipped', race.n_skipped) }},
-{{ checkbox('failed',  race.n_failed) }},
-{{ checkbox('error',   race.n_errors) }},
-{{ checkbox('xfailed', race.n_xfail) }},
-{{ checkbox('xpassed', race.n_xpass) }}
+{{ checkbox('passed',  model_set.n_passed) }},
+{{ checkbox('skipped', model_set.n_skipped) }},
+{{ checkbox('failed',  model_set.n_failed) }},
+{{ checkbox('error',   model_set.n_errors) }},
+{{ checkbox('xfailed', model_set.n_xfail) }},
+{{ checkbox('xpassed', model_set.n_xpass) }}
 
 <table class="results-table" id="_default-results-table">
     <thead id="_default-results-table-head">
@@ -38,9 +42,11 @@
             <th colspan="4">No results found. Try to check the filters</th>
         </tr>
     </thead>
-    {% for test in race.tests -%}
+    {% for test in model_set.tests -%}
         {% block table_row scoped -%}{%- endblock %}
     {%- endfor %}
 </table>
-{% endfor %}
+{%- endfor %}
+
+{%- endfor %}
 {% endblock %}

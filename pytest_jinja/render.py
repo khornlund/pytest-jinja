@@ -33,6 +33,21 @@ def read_json(json_f):
 
 
 def create_race(name, tests):
+    sort_by_model = sort_tests(tests, 'model')
+    model_sets = [create_model_set(key, val) for key, val in sort_by_model.items()]
+    d = {
+        'name'        : name,
+        'model_sets'  : model_sets,
+        'n_passed'    : sum([1 for model_set in model_sets if model_set['all_pass']]),
+        'n_failed'    : sum([1 for model_set in model_sets if not model_set['all_pass']]),
+        'n_model_sets': len(model_sets),
+        'n_total'     : len(tests)
+    }
+    d['all_pass'] = d['n_passed'] == len(model_sets)
+    return d
+
+
+def create_model_set(name, tests):
     d = {
         'name'     : name,
         'tests'    : tests,
@@ -44,7 +59,7 @@ def create_race(name, tests):
         'n_xpass'  : sum([1 for test in tests if test['result'] == 'xpass']),
         'n_total'  : len(tests)
     }
-    d['all_pass'] = d['n_failed'] == 0
+    d['all_pass'] = d['n_passed'] == len(tests)
     return d
 
 
@@ -53,6 +68,7 @@ def parse_test(test):
         'nodeid'      : test['nodeid'],
         'result'      : test['outcome'],
         'random_seed' : test['metadata']['random_seed'],
+        'model'       : test['metadata']['model'],
         'duration'    : round(test['setup']['duration'] + 
                               test['call']['duration'] + 
                               test['teardown']['duration'], 3)
