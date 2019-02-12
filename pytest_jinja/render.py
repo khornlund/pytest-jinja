@@ -36,14 +36,20 @@ def create_race(name, tests):
     sort_by_model = sort_tests(tests, 'model')
     model_sets = [create_model_set(key, val) for key, val in sort_by_model.items()]
     d = {
-        'name'        : name,
-        'model_sets'  : model_sets,
-        'n_passed'    : sum([1 for model_set in model_sets if model_set['all_pass']]),
-        'n_failed'    : sum([1 for model_set in model_sets if not model_set['all_pass']]),
-        'n_model_sets': len(model_sets),
-        'n_total'     : len(tests)
+        'name'             : name,
+        'model_sets'       : model_sets,
+        'n_model_set_pass' : sum([1 for model_set in model_sets if model_set['all_pass']]),
+        'n_model_set_fail' : sum([1 for model_set in model_sets if not model_set['all_pass']]),
+        'n_model_sets'     : len(model_sets),
+        'n_total'          : len(tests),
+        'n_total_passed'   : sum([model_set['n_passed']  for model_set in model_sets]),
+        'n_total_failed'   : sum([model_set['n_failed']  for model_set in model_sets]),
+        'n_total_skipped'  : sum([model_set['n_skipped'] for model_set in model_sets]),
+        'n_total_errors'   : sum([model_set['n_errors']  for model_set in model_sets]),
+        'n_total_xfail'    : sum([model_set['n_xfail']   for model_set in model_sets]),
+        'n_total_xpass'    : sum([model_set['n_xpass']   for model_set in model_sets])
     }
-    d['all_pass'] = d['n_passed'] == len(model_sets)
+    d['all_pass'] = d['n_model_set_pass'] == len(model_sets)
     return d
 
 
