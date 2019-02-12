@@ -23,6 +23,13 @@
     </tr>
     {%- endfor %}
 
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">{{ race.rel_total_pass }}</td>
+        <td>{{ race.n_total_passed }}</td>
+        <td>{{ race.n_total_failed }}</td>
+    </tr>
+
 </table>
 
 {% for model_set in race.model_sets -%}

@@ -52,58 +52,78 @@
             <th>Race</th>
             <th>Pass %</th>
             <th>Total Passed Tests</th>
+            <th>Total Skipped Tests</th>
             <th>Total Failed Tests</th>
+
         </tr>
         <tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">0</td>
             <td class="summary-result rel_pass">0.8</td>
             <td class="summary-result">16</td>
+            <td class="summary-result">0</td>
             <td class="summary-result">4</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">1</td>
             <td class="summary-result rel_pass">0.6</td>
             <td class="summary-result">12</td>
+            <td class="summary-result">0</td>
             <td class="summary-result">8</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">2</td>
             <td class="summary-result rel_pass">0.7</td>
             <td class="summary-result">14</td>
+            <td class="summary-result">0</td>
             <td class="summary-result">6</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">3</td>
             <td class="summary-result rel_pass">0.7</td>
             <td class="summary-result">14</td>
+            <td class="summary-result">0</td>
             <td class="summary-result">6</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">4</td>
             <td class="summary-result rel_pass">0.9</td>
             <td class="summary-result">18</td>
+            <td class="summary-result">0</td>
             <td class="summary-result">2</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">5</td>
             <td class="summary-result rel_pass">0.7</td>
             <td class="summary-result">14</td>
+            <td class="summary-result">0</td>
             <td class="summary-result">6</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">6</td>
             <td class="summary-result rel_pass">0.8</td>
             <td class="summary-result">16</td>
+            <td class="summary-result">0</td>
             <td class="summary-result">4</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">7</td>
             <td class="summary-result rel_pass">0.8</td>
             <td class="summary-result">16</td>
+            <td class="summary-result">0</td>
             <td class="summary-result">4</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">8</td>
             <td class="summary-result rel_pass">0.9</td>
             <td class="summary-result">18</td>
+            <td class="summary-result">0</td>
             <td class="summary-result">2</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">9</td>
             <td class="summary-result rel_pass">0.6</td>
             <td class="summary-result">12</td>
+            <td class="summary-result">0</td>
             <td class="summary-result">8</td>
+        </tr>
+
+        <tr style="font-weight:bold">
+            <td>Totals</td>
+            <td class="rel_pass">0.75</td>
+            <td>150</td>
+            <td>0</td>
+            <td>50</td>
         </tr>
     </table>
     
@@ -130,6 +150,13 @@
         <td class="summary-result rel_pass">0.6</td>
         <td class="summary-result">6</td>
         <td class="summary-result">4</td>
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.8</td>
+        <td>16</td>
+        <td>4</td>
     </tr>
 
 </table>
@@ -619,6 +646,13 @@ tests\test_main.py:19: AssertionError</div>
         <td class="summary-result rel_pass">0.2</td>
         <td class="summary-result">2</td>
         <td class="summary-result">8</td>
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.6</td>
+        <td>12</td>
+        <td>8</td>
     </tr>
 
 </table>
@@ -1146,6 +1180,13 @@ tests\test_main.py:19: AssertionError</div>
         <td class="summary-result">6</td>
     </tr>
 
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.7</td>
+        <td>14</td>
+        <td>6</td>
+    </tr>
+
 </table>
 
 <h2>Tests for mustang</h2>
@@ -1651,6 +1692,13 @@ tests\test_main.py:19: AssertionError</div>
         <td class="summary-result rel_pass">0.4</td>
         <td class="summary-result">4</td>
         <td class="summary-result">6</td>
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.7</td>
+        <td>14</td>
+        <td>6</td>
     </tr>
 
 </table>
@@ -2160,6 +2208,13 @@ tests\test_main.py:19: AssertionError</div>
         <td class="summary-result">2</td>
     </tr>
 
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.9</td>
+        <td>18</td>
+        <td>2</td>
+    </tr>
+
 </table>
 
 <h2>Tests for mustang</h2>
@@ -2629,6 +2684,13 @@ tests\test_main.py:19: AssertionError</div>
         <td class="summary-result rel_pass">0.4</td>
         <td class="summary-result">4</td>
         <td class="summary-result">6</td>
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.7</td>
+        <td>14</td>
+        <td>6</td>
     </tr>
 
 </table>
@@ -3138,6 +3200,13 @@ tests\test_main.py:19: AssertionError</div>
         <td class="summary-result">4</td>
     </tr>
 
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.8</td>
+        <td>16</td>
+        <td>4</td>
+    </tr>
+
 </table>
 
 <h2>Tests for mustang</h2>
@@ -3625,6 +3694,13 @@ tests\test_main.py:19: AssertionError</div>
         <td class="summary-result rel_pass">0.6</td>
         <td class="summary-result">6</td>
         <td class="summary-result">4</td>
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.8</td>
+        <td>16</td>
+        <td>4</td>
     </tr>
 
 </table>
@@ -4116,6 +4192,13 @@ tests\test_main.py:19: AssertionError</div>
         <td class="summary-result">2</td>
     </tr>
 
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.9</td>
+        <td>18</td>
+        <td>2</td>
+    </tr>
+
 </table>
 
 <h2>Tests for mustang</h2>
@@ -4585,6 +4668,13 @@ tests\test_main.py:19: AssertionError</div>
         <td class="summary-result rel_pass">0.2</td>
         <td class="summary-result">2</td>
         <td class="summary-result">8</td>
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.6</td>
+        <td>12</td>
+        <td>8</td>
     </tr>
 
 </table>

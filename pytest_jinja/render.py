@@ -24,6 +24,7 @@ def read_json(json_f):
         'n_xpass'         : 0,  # TODO
         'n_total'         : data['summary']['total']
     }
+    context['rel_total_pass'] = context['n_passed'] / (context['n_total'] - context['n_skipped'])
 
     tests = get_tests(data)
     sort_by_race = sort_tests(tests, 'random_seed')

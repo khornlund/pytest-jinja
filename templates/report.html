@@ -52,16 +52,27 @@
             <th>Race</th>
             <th>Pass %</th>
             <th>Total Passed Tests</th>
+            <th>Total Skipped Tests</th>
             <th>Total Failed Tests</th>
+
         </tr>
         {% for race in races -%}
         <tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">{{ race.name }}</td>
             <td class="summary-result rel_pass">{{ race.rel_total_pass }}</td>
             <td class="summary-result">{{ race.n_total_passed }}</td>
+            <td class="summary-result">{{ race.n_total_skipped }}</td>
             <td class="summary-result">{{ race.n_total_failed }}</td>
         </tr>
         {%- endfor %}
+
+        <tr style="font-weight:bold">
+            <td>Totals</td>
+            <td class="rel_pass">{{ rel_total_pass }}</td>
+            <td>{{ n_passed }}</td>
+            <td>{{ n_skipped }}</td>
+            <td>{{ n_failed }}</td>
+        </tr>
     </table>
     {% block results %}{% endblock %}
 
