@@ -52,10 +52,9 @@
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
         <tr hidden="true" id="not-found-message{{ race.name }}">
-            <th colspan="4">No results found. Try to check the filters</th>
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     {% for test in model_set.tests -%}
