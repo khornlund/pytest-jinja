@@ -269,7 +269,11 @@ function scroll_to_race(elem) {
     var table = document.getElementById(table_id);
     var scroll_distance = table.getBoundingClientRect().y;
 
-    window.scrollBy(0, scroll_distance - 300);
+    window.scrollBy({
+        left: 0, 
+        top: scroll_distance - 300, 
+        behavior: "smooth"
+    });
 }
 
 function scroll_to_model(elem) {
@@ -279,5 +283,9 @@ function scroll_to_model(elem) {
     var table = document.querySelector(table_id);
     var scroll_distance = table.getBoundingClientRect().y;
 
-    window.scrollBy(0, scroll_distance - 150);
+    window.scrollBy({
+        left: 0, 
+        top: scroll_distance - 150, 
+        behavior: "smooth"
+    });
 }
