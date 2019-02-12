@@ -50,82 +50,60 @@
     <table class="results-table summary-table">
         <tr>
             <th>Race</th>
-            <th>All Pass?</th>
-            <th>Model Sets Pass</th>
-            <th>Model Sets Fail</th>
+            <th>Pass %</th>
             <th>Total Passed Tests</th>
             <th>Total Failed Tests</th>
         </tr>
         <tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">0</td>
-            <td class="summary-result False">False</td>
-            <td class="summary-result True">1</td>
-            <td class="summary-result False">1</td>
-            <td class="summary-result True">16</td>
-            <td class="summary-result False">4</td>
+            <td class="summary-result rel_pass">0.8</td>
+            <td class="summary-result">16</td>
+            <td class="summary-result">4</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">1</td>
-            <td class="summary-result False">False</td>
-            <td class="summary-result True">1</td>
-            <td class="summary-result False">1</td>
-            <td class="summary-result True">12</td>
-            <td class="summary-result False">8</td>
+            <td class="summary-result rel_pass">0.6</td>
+            <td class="summary-result">12</td>
+            <td class="summary-result">8</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">2</td>
-            <td class="summary-result False">False</td>
-            <td class="summary-result True">1</td>
-            <td class="summary-result False">1</td>
-            <td class="summary-result True">14</td>
-            <td class="summary-result False">6</td>
+            <td class="summary-result rel_pass">0.7</td>
+            <td class="summary-result">14</td>
+            <td class="summary-result">6</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">3</td>
-            <td class="summary-result False">False</td>
-            <td class="summary-result True">1</td>
-            <td class="summary-result False">1</td>
-            <td class="summary-result True">14</td>
-            <td class="summary-result False">6</td>
+            <td class="summary-result rel_pass">0.7</td>
+            <td class="summary-result">14</td>
+            <td class="summary-result">6</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">4</td>
-            <td class="summary-result False">False</td>
-            <td class="summary-result True">1</td>
-            <td class="summary-result False">1</td>
-            <td class="summary-result True">18</td>
-            <td class="summary-result False">2</td>
+            <td class="summary-result rel_pass">0.9</td>
+            <td class="summary-result">18</td>
+            <td class="summary-result">2</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">5</td>
-            <td class="summary-result False">False</td>
-            <td class="summary-result True">1</td>
-            <td class="summary-result False">1</td>
-            <td class="summary-result True">14</td>
-            <td class="summary-result False">6</td>
+            <td class="summary-result rel_pass">0.7</td>
+            <td class="summary-result">14</td>
+            <td class="summary-result">6</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">6</td>
-            <td class="summary-result False">False</td>
-            <td class="summary-result True">1</td>
-            <td class="summary-result False">1</td>
-            <td class="summary-result True">16</td>
-            <td class="summary-result False">4</td>
+            <td class="summary-result rel_pass">0.8</td>
+            <td class="summary-result">16</td>
+            <td class="summary-result">4</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">7</td>
-            <td class="summary-result False">False</td>
-            <td class="summary-result True">1</td>
-            <td class="summary-result False">1</td>
-            <td class="summary-result True">16</td>
-            <td class="summary-result False">4</td>
+            <td class="summary-result rel_pass">0.8</td>
+            <td class="summary-result">16</td>
+            <td class="summary-result">4</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">8</td>
-            <td class="summary-result False">False</td>
-            <td class="summary-result True">1</td>
-            <td class="summary-result False">1</td>
-            <td class="summary-result True">18</td>
-            <td class="summary-result False">2</td>
+            <td class="summary-result rel_pass">0.9</td>
+            <td class="summary-result">18</td>
+            <td class="summary-result">2</td>
         </tr><tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">9</td>
-            <td class="summary-result False">False</td>
-            <td class="summary-result True">1</td>
-            <td class="summary-result False">1</td>
-            <td class="summary-result True">12</td>
-            <td class="summary-result False">8</td>
+            <td class="summary-result rel_pass">0.6</td>
+            <td class="summary-result">12</td>
+            <td class="summary-result">8</td>
         </tr>
     </table>
     
@@ -137,21 +115,21 @@
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
-        <th>All Pass?</th>
+        <th>Pass %</th>
         <th>Total Passed Tests</th>
         <th>Total Failed Tests</th>
     </tr>
 
     <tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="0 scroller">mustang</td>
-        <td class="summary-result True">True</td>
-        <td class="summary-result True">10</td>
-        <td class="summary-result False">0</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
     </tr><tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="0 scroller">fiesta</td>
-        <td class="summary-result False">False</td>
-        <td class="summary-result True">6</td>
-        <td class="summary-result False">4</td>
+        <td class="summary-result rel_pass">0.6</td>
+        <td class="summary-result">6</td>
+        <td class="summary-result">4</td>
     </tr>
 
 </table>
@@ -228,7 +206,7 @@
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table mustang-0 scroller" id="results-table-0">
+<table class="results-table mustang-0" id="results-table-0">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -442,7 +420,7 @@
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table fiesta-0 scroller" id="results-table-0">
+<table class="results-table fiesta-0" id="results-table-0">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -626,21 +604,21 @@ tests\test_main.py:19: AssertionError</div>
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
-        <th>All Pass?</th>
+        <th>Pass %</th>
         <th>Total Passed Tests</th>
         <th>Total Failed Tests</th>
     </tr>
 
     <tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="1 scroller">mustang</td>
-        <td class="summary-result True">True</td>
-        <td class="summary-result True">10</td>
-        <td class="summary-result False">0</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
     </tr><tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="1 scroller">fiesta</td>
-        <td class="summary-result False">False</td>
-        <td class="summary-result True">2</td>
-        <td class="summary-result False">8</td>
+        <td class="summary-result rel_pass">0.2</td>
+        <td class="summary-result">2</td>
+        <td class="summary-result">8</td>
     </tr>
 
 </table>
@@ -717,7 +695,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table mustang-1 scroller" id="results-table-1">
+<table class="results-table mustang-1" id="results-table-1">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -931,7 +909,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table fiesta-1 scroller" id="results-table-1">
+<table class="results-table fiesta-1" id="results-table-1">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -1151,21 +1129,21 @@ tests\test_main.py:19: AssertionError</div>
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
-        <th>All Pass?</th>
+        <th>Pass %</th>
         <th>Total Passed Tests</th>
         <th>Total Failed Tests</th>
     </tr>
 
     <tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="2 scroller">mustang</td>
-        <td class="summary-result True">True</td>
-        <td class="summary-result True">10</td>
-        <td class="summary-result False">0</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
     </tr><tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="2 scroller">fiesta</td>
-        <td class="summary-result False">False</td>
-        <td class="summary-result True">4</td>
-        <td class="summary-result False">6</td>
+        <td class="summary-result rel_pass">0.4</td>
+        <td class="summary-result">4</td>
+        <td class="summary-result">6</td>
     </tr>
 
 </table>
@@ -1242,7 +1220,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table mustang-2 scroller" id="results-table-2">
+<table class="results-table mustang-2" id="results-table-2">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -1456,7 +1434,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table fiesta-2 scroller" id="results-table-2">
+<table class="results-table fiesta-2" id="results-table-2">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -1658,21 +1636,21 @@ tests\test_main.py:19: AssertionError</div>
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
-        <th>All Pass?</th>
+        <th>Pass %</th>
         <th>Total Passed Tests</th>
         <th>Total Failed Tests</th>
     </tr>
 
     <tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="3 scroller">mustang</td>
-        <td class="summary-result True">True</td>
-        <td class="summary-result True">10</td>
-        <td class="summary-result False">0</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
     </tr><tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="3 scroller">fiesta</td>
-        <td class="summary-result False">False</td>
-        <td class="summary-result True">4</td>
-        <td class="summary-result False">6</td>
+        <td class="summary-result rel_pass">0.4</td>
+        <td class="summary-result">4</td>
+        <td class="summary-result">6</td>
     </tr>
 
 </table>
@@ -1749,7 +1727,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table mustang-3 scroller" id="results-table-3">
+<table class="results-table mustang-3" id="results-table-3">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -1963,7 +1941,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table fiesta-3 scroller" id="results-table-3">
+<table class="results-table fiesta-3" id="results-table-3">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -2165,21 +2143,21 @@ tests\test_main.py:19: AssertionError</div>
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
-        <th>All Pass?</th>
+        <th>Pass %</th>
         <th>Total Passed Tests</th>
         <th>Total Failed Tests</th>
     </tr>
 
     <tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="4 scroller">mustang</td>
-        <td class="summary-result True">True</td>
-        <td class="summary-result True">10</td>
-        <td class="summary-result False">0</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
     </tr><tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="4 scroller">fiesta</td>
-        <td class="summary-result False">False</td>
-        <td class="summary-result True">8</td>
-        <td class="summary-result False">2</td>
+        <td class="summary-result rel_pass">0.8</td>
+        <td class="summary-result">8</td>
+        <td class="summary-result">2</td>
     </tr>
 
 </table>
@@ -2256,7 +2234,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table mustang-4 scroller" id="results-table-4">
+<table class="results-table mustang-4" id="results-table-4">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -2470,7 +2448,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table fiesta-4 scroller" id="results-table-4">
+<table class="results-table fiesta-4" id="results-table-4">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -2636,21 +2614,21 @@ tests\test_main.py:19: AssertionError</div>
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
-        <th>All Pass?</th>
+        <th>Pass %</th>
         <th>Total Passed Tests</th>
         <th>Total Failed Tests</th>
     </tr>
 
     <tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="5 scroller">mustang</td>
-        <td class="summary-result True">True</td>
-        <td class="summary-result True">10</td>
-        <td class="summary-result False">0</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
     </tr><tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="5 scroller">fiesta</td>
-        <td class="summary-result False">False</td>
-        <td class="summary-result True">4</td>
-        <td class="summary-result False">6</td>
+        <td class="summary-result rel_pass">0.4</td>
+        <td class="summary-result">4</td>
+        <td class="summary-result">6</td>
     </tr>
 
 </table>
@@ -2727,7 +2705,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table mustang-5 scroller" id="results-table-5">
+<table class="results-table mustang-5" id="results-table-5">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -2941,7 +2919,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table fiesta-5 scroller" id="results-table-5">
+<table class="results-table fiesta-5" id="results-table-5">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -3143,21 +3121,21 @@ tests\test_main.py:19: AssertionError</div>
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
-        <th>All Pass?</th>
+        <th>Pass %</th>
         <th>Total Passed Tests</th>
         <th>Total Failed Tests</th>
     </tr>
 
     <tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="6 scroller">mustang</td>
-        <td class="summary-result True">True</td>
-        <td class="summary-result True">10</td>
-        <td class="summary-result False">0</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
     </tr><tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="6 scroller">fiesta</td>
-        <td class="summary-result False">False</td>
-        <td class="summary-result True">6</td>
-        <td class="summary-result False">4</td>
+        <td class="summary-result rel_pass">0.6</td>
+        <td class="summary-result">6</td>
+        <td class="summary-result">4</td>
     </tr>
 
 </table>
@@ -3234,7 +3212,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table mustang-6 scroller" id="results-table-6">
+<table class="results-table mustang-6" id="results-table-6">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -3448,7 +3426,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table fiesta-6 scroller" id="results-table-6">
+<table class="results-table fiesta-6" id="results-table-6">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -3632,21 +3610,21 @@ tests\test_main.py:19: AssertionError</div>
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
-        <th>All Pass?</th>
+        <th>Pass %</th>
         <th>Total Passed Tests</th>
         <th>Total Failed Tests</th>
     </tr>
 
     <tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="7 scroller">mustang</td>
-        <td class="summary-result True">True</td>
-        <td class="summary-result True">10</td>
-        <td class="summary-result False">0</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
     </tr><tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="7 scroller">fiesta</td>
-        <td class="summary-result False">False</td>
-        <td class="summary-result True">6</td>
-        <td class="summary-result False">4</td>
+        <td class="summary-result rel_pass">0.6</td>
+        <td class="summary-result">6</td>
+        <td class="summary-result">4</td>
     </tr>
 
 </table>
@@ -3723,7 +3701,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table mustang-7 scroller" id="results-table-7">
+<table class="results-table mustang-7" id="results-table-7">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -3937,7 +3915,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table fiesta-7 scroller" id="results-table-7">
+<table class="results-table fiesta-7" id="results-table-7">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -4121,21 +4099,21 @@ tests\test_main.py:19: AssertionError</div>
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
-        <th>All Pass?</th>
+        <th>Pass %</th>
         <th>Total Passed Tests</th>
         <th>Total Failed Tests</th>
     </tr>
 
     <tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="8 scroller">mustang</td>
-        <td class="summary-result True">True</td>
-        <td class="summary-result True">10</td>
-        <td class="summary-result False">0</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
     </tr><tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="8 scroller">fiesta</td>
-        <td class="summary-result False">False</td>
-        <td class="summary-result True">8</td>
-        <td class="summary-result False">2</td>
+        <td class="summary-result rel_pass">0.8</td>
+        <td class="summary-result">8</td>
+        <td class="summary-result">2</td>
     </tr>
 
 </table>
@@ -4212,7 +4190,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table mustang-8 scroller" id="results-table-8">
+<table class="results-table mustang-8" id="results-table-8">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -4426,7 +4404,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table fiesta-8 scroller" id="results-table-8">
+<table class="results-table fiesta-8" id="results-table-8">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -4592,21 +4570,21 @@ tests\test_main.py:19: AssertionError</div>
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
-        <th>All Pass?</th>
+        <th>Pass %</th>
         <th>Total Passed Tests</th>
         <th>Total Failed Tests</th>
     </tr>
 
     <tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="9 scroller">mustang</td>
-        <td class="summary-result True">True</td>
-        <td class="summary-result True">10</td>
-        <td class="summary-result False">0</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
     </tr><tr class="results-table-row">
         <td onclick="scroll_to_model(this)" class="9 scroller">fiesta</td>
-        <td class="summary-result False">False</td>
-        <td class="summary-result True">2</td>
-        <td class="summary-result False">8</td>
+        <td class="summary-result rel_pass">0.2</td>
+        <td class="summary-result">2</td>
+        <td class="summary-result">8</td>
     </tr>
 
 </table>
@@ -4683,7 +4661,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table mustang-9 scroller" id="results-table-9">
+<table class="results-table mustang-9" id="results-table-9">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
@@ -4897,7 +4875,7 @@ tests\test_main.py:19: AssertionError</div>
 />
 <span class="xpassed">0 xpassed</span>
 
-<table class="results-table fiesta-9 scroller" id="results-table-9">
+<table class="results-table fiesta-9" id="results-table-9">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>

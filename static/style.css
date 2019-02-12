@@ -80,6 +80,22 @@ span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, 
 	text-align: left;
 }
 
+/*------------------
+ * 2. Extra
+ *------------------*/
+
+ .pass {
+	color: green;
+ }
+
+ .close-to-pass {
+	color: orange;
+ }
+
+ .fail {
+	color: red;
+ }
+
 /******************************
  * RESULTS TABLE
  *

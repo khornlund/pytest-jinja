@@ -122,6 +122,7 @@ function init() {
     });
 
     set_summary_table_class();
+    set_rel_class();
 };
 
 function sort_table(clicked, key_func) {
@@ -287,5 +288,23 @@ function scroll_to_model(elem) {
         left: 0, 
         top: scroll_distance - 150, 
         behavior: "smooth"
+    });
+}
+
+function set_rel_class() {
+    var rel_pass_elements = document.querySelectorAll(".rel_pass");
+
+    rel_pass_elements.forEach(function(elem) {
+        var rel_pass = parseFloat(elem.innerHTML);
+        
+        if (rel_pass == 1) {
+            elem.classList.add("pass");
+        } else if (rel_pass < 0.95) {
+            elem.classList.add("fail");
+        } else {
+            elem.classList.add("close-to-pass");
+        }
+
+        elem.classList.remove("rel_pass");
     });
 }

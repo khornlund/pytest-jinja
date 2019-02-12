@@ -50,20 +50,16 @@
     <table class="results-table summary-table">
         <tr>
             <th>Race</th>
-            <th>All Pass?</th>
-            <th>Model Sets Pass</th>
-            <th>Model Sets Fail</th>
+            <th>Pass %</th>
             <th>Total Passed Tests</th>
             <th>Total Failed Tests</th>
         </tr>
         {% for race in races -%}
         <tr class="results-table-row">
             <td onclick="scroll_to_race(this)" class="scroller">{{ race.name }}</td>
-            <td class="summary-result {{ race.all_pass }}">{{ race.all_pass }}</td>
-            <td class="summary-result True">{{ race.n_model_set_pass }}</td>
-            <td class="summary-result False">{{ race.n_model_set_fail }}</td>
-            <td class="summary-result True">{{ race.n_total_passed }}</td>
-            <td class="summary-result False">{{ race.n_total_failed }}</td>
+            <td class="summary-result rel_pass">{{ race.rel_total_pass }}</td>
+            <td class="summary-result">{{ race.n_total_passed }}</td>
+            <td class="summary-result">{{ race.n_total_failed }}</td>
         </tr>
         {%- endfor %}
     </table>
