@@ -51,16 +51,23 @@
         <tr>
             <th>Race</th>
             <th>All Pass?</th>
+            <th>Model Sets Pass</th>
+            <th>Model Sets Fail</th>
+            <th>Total Passed Tests</th>
+            <th>Total Failed Tests</th>
         </tr>
         {% for race in races -%}
         <tr class="results-table-row">
-            <td>Race {{ race.name }}</td>
+            <td onclick="scroll_to_race(this)" class="scroller">{{ race.name }}</td>
             <td class="summary-result {{ race.all_pass }}">{{ race.all_pass }}</td>
+            <td class="summary-result True">{{ race.n_model_set_pass }}</td>
+            <td class="summary-result False">{{ race.n_model_set_fail }}</td>
+            <td class="summary-result True">{{ race.n_total_passed }}</td>
+            <td class="summary-result False">{{ race.n_total_failed }}</td>
         </tr>
         {%- endfor %}
     </table>
     {% block results %}{% endblock %}
 
 </body>
-
 </html>

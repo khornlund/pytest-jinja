@@ -43,13 +43,13 @@ table {
 /******************************
  * TEST RESULT COLORS
  ******************************/
-span.passed, .passed .col-result, .passed .summary-result {
+span.passed, .passed .col-result, .True {
 	color: green;
 }
 span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
 	color: orange;
 }
-span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result, .failed .summary-result {
+span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result, .False {
 	color: red;
 }
 
@@ -150,6 +150,10 @@ div.image img {
 	content: " (hide details)";
 	color: #BBB;
 	font-style: italic;
+	cursor: pointer;
+}
+
+.scroller:hover {
 	cursor: pointer;
 }
 

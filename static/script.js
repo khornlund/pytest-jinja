@@ -262,3 +262,22 @@ function set_summary_table_class() {
         }
     });
 }
+
+function scroll_to_race(elem) {
+    var test_name = elem.innerHTML;
+    var table_id = "results-table-" + test_name;
+    var table = document.getElementById(table_id);
+    var scroll_distance = table.getBoundingClientRect().y;
+
+    window.scrollBy(0, scroll_distance - 300);
+}
+
+function scroll_to_model(elem) {
+    var race_name = elem.classList[0];
+    var model_name = elem.innerHTML;
+    var table_id = "." + model_name + "-" + race_name;
+    var table = document.querySelector(table_id);
+    var scroll_distance = table.getBoundingClientRect().y;
+
+    window.scrollBy(0, scroll_distance - 150);
+}
