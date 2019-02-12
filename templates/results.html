@@ -4,6 +4,7 @@
 
 {% for race in races -%}
 <h2 id="heading-{{ race.name }}">Race {{ race.name }}</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>{{ race.n_total }} tests ran. </p>
 
 {{ checkbox('passed',  race.n_total_passed) }},
@@ -49,6 +50,11 @@
 
 {% for model_set in race.model_sets -%}
 <h2 id="heading-{{ race.name }}-{{ model_set.name }}">Tests for {{ model_set.name }}</h2>
+<p>
+    <a href="javascript:scroll_to_parent({{ race.name }})">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
 
@@ -65,11 +71,11 @@
 />
 <span class="{{ type }}">{{ n }} {{ type }}</span>
 {%- endmacro %}
-{{ checkbox('passed',  model_set.n_passed, model_set.name) }},
-{{ checkbox('skipped', model_set.n_skipped, model_set.name) }},
-{{ checkbox('failed',  model_set.n_failed, model_set.name) }},
-{{ checkbox('error',   model_set.n_errors, model_set.name) }},
-{{ checkbox('xpassed', model_set.n_xpass, model_set.name) }},
+{{ checkbox('passed',  model_set.n_passed, model_set.name) }}
+{{ checkbox('skipped', model_set.n_skipped, model_set.name) }}
+{{ checkbox('failed',  model_set.n_failed, model_set.name) }}
+{{ checkbox('error',   model_set.n_errors, model_set.name) }}
+{{ checkbox('xpassed', model_set.n_xpass, model_set.name) }}
 {{ checkbox('xfailed', model_set.n_xfail, model_set.name) }}
 
 <table class="results-table {{ model_set.name }}-{{ race.name }}" id="results-table-{{ race.name }}">

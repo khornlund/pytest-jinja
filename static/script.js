@@ -232,7 +232,7 @@ function filter_table(elem) {
         outcome_rows[i].hidden = !elem.checked;
     }
 
-    update_check_boxes(elem.checked, outcome);
+    //update_check_boxes(elem.checked, outcome);
 
     var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
     var all_rows_hidden = rows.length == 0 ? true : false;
@@ -274,6 +274,26 @@ function scroll_to(elem) {
     window.scrollBy({
         left: 0, 
         top: scroll_distance, 
+        behavior: "smooth"
+    });
+}
+
+function scroll_to_top() {
+    window.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+function scroll_to_parent(name) {
+    var heading_id = "#heading-" + name;
+    var heading = document.querySelector(heading_id);
+    scroll_distance = heading.getBoundingClientRect().y;
+
+    window.scrollBy({
+        left: 0,
+        top: scroll_distance,
         behavior: "smooth"
     });
 }
