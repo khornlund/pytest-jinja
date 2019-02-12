@@ -24,25 +24,43 @@
     </table>
 
     <h2>Summary</h2>
-    <table class="summary-table">
-            <tr>
-                <th>Race</th>
-                <th>Result</th>
-            </tr>
-            
-            {% for race in races -%}
-            <tr>
-                <td>Race {{ race.name }}</td>
-                <td class="summary-result">{{ race.all_pass }}</td>
-            </tr>
-            {%- endfor %}
-        </table>
-
-
-
-
     <p>{{ n_total }} tests ran in {{ duration }} seconds. </p>
+
+    <input
+        checked="true"
+        class="filter"
+        data-suffix-id="{{ report_name }}"
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    /><span class="passed">{{ n_passed }} passed</span>
+    <input
+        checked="true"
+        class="filter"
+        data-suffix-id="{{ report_name }}"
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    /><span class="failed">{{ n_failed }} failed</span>
+
+    <table class="results-table summary-table">
+        <tr>
+            <th>Race</th>
+            <th>Result</th>
+        </tr>
+        {% for race in races -%}
+        <tr class="results-table-row">
+            <td>Race {{ race.name }}</td>
+            <td class="summary-result">{{ race.all_pass }}</td>
+        </tr>
+        {%- endfor %}
+    </table>
     {% block results %}{% endblock %}
+
 </body>
 
 </html>

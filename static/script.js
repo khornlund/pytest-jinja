@@ -70,7 +70,7 @@ function show_filters() {
 
 function add_collapse() {
     // Add links for show/hide all
-    find_all('table.results-table').forEach(function(resulttable) {
+    find_all('table.results-table:not(.summary-table)').forEach(function(resulttable) {
         var showhideall = document.createElement("p");
         showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
             '<a href="javascript:hide_all_extras()">Hide all details</a>';
@@ -232,12 +232,14 @@ function filter_table(elem) {
         outcome_rows[i].hidden = !elem.checked;
     }
 
+    update_check_boxes(elem.checked, outcome);
+
     var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
     var all_rows_hidden = rows.length == 0 ? true : false;
     var not_found_message = document.getElementById("not-found-message" + suffix_id);
-    not_found_message.hidden = !all_rows_hidden;
-
-    update_check_boxes(elem.checked, outcome);
+    if (not_found_message) {
+        not_found_message.hidden = !all_rows_hidden;
+    }
 }
 
 function update_check_boxes(checked_status, outcome) {
@@ -255,10 +257,10 @@ function set_summary_result() {
     results.forEach(function(element) {
         if (element.innerHTML == "True") {
             element.innerHTML = "passed";
-            element.classList.add("passed");
+            element.parentElement.classList.add("passed");
         } else {
             element.innerHTML = "failed";
-            element.classList.add("failed");
+            element.parentElement.classList.add("failed");
         }
     });
 }
