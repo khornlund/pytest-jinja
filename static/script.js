@@ -121,7 +121,7 @@ function init() {
                               }, false)
     });
 
-    set_summary_result();
+    set_summary_table_class();
 };
 
 function sort_table(clicked, key_func) {
@@ -251,15 +251,13 @@ function update_check_boxes(checked_status, outcome) {
     });
 }
 
-function set_summary_result() {
+function set_summary_table_class() {
     var results = document.querySelectorAll(".summary-result");
     
     results.forEach(function(element) {
         if (element.innerHTML == "True") {
-            element.innerHTML = "passed";
             element.parentElement.classList.add("passed");
         } else {
-            element.innerHTML = "failed";
             element.parentElement.classList.add("failed");
         }
     });

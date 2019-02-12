@@ -50,12 +50,12 @@
     <table class="results-table summary-table">
         <tr>
             <th>Race</th>
-            <th>Result</th>
+            <th>All Pass?</th>
         </tr>
         {% for race in races -%}
         <tr class="results-table-row">
             <td>Race {{ race.name }}</td>
-            <td class="summary-result">{{ race.all_pass }}</td>
+            <td class="summary-result {{ race.all_pass }}">{{ race.all_pass }}</td>
         </tr>
         {%- endfor %}
     </table>

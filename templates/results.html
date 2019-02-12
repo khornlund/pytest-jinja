@@ -9,13 +9,13 @@
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
-        <th>Result</th>
+        <th>All Pass?</th>
     </tr>
 
     {% for model_set in race.model_sets -%}
     <tr class="results-table-row">
         <td>{{ model_set.name }}</td>
-        <td class="summary-result">{{ model_set.all_pass }}</td>
+        <td class="summary-result {{ model_set.all_pass }}">{{ model_set.all_pass }}</td>
     </tr>
     {%- endfor %}
 
