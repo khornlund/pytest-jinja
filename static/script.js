@@ -279,8 +279,8 @@ function scroll_to_race(elem) {
 function scroll_to_model(elem) {
     var race_name = elem.classList[0];
     var model_name = elem.innerHTML;
-    var table_id = "." + model_name + "-" + race_name;
-    var table = document.querySelector(table_id);
+    var table_class = "." + model_name + "-" + race_name;
+    var table = document.querySelector(table_class);
     var scroll_distance = table.getBoundingClientRect().y;
 
     window.scrollBy({

@@ -38,8 +38,6 @@ def create_race(name, tests):
     d = {
         'name'             : name,
         'model_sets'       : model_sets,
-        'n_model_set_pass' : sum([1 for model_set in model_sets if model_set['all_pass']]),
-        'n_model_set_fail' : sum([1 for model_set in model_sets if not model_set['all_pass']]),
         'n_model_sets'     : len(model_sets),
         'n_total'          : len(tests),
         'n_total_passed'   : sum([model_set['n_passed']  for model_set in model_sets]),
@@ -49,7 +47,7 @@ def create_race(name, tests):
         'n_total_xfail'    : sum([model_set['n_xfail']   for model_set in model_sets]),
         'n_total_xpass'    : sum([model_set['n_xpass']   for model_set in model_sets])
     }
-    d['all_pass'] = d['n_model_set_pass'] == len(model_sets)
+    d['rel_total_pass'] = d['n_total_passed'] / (d['n_total'] - d['n_total_skipped'])
     return d
 
 
@@ -65,7 +63,7 @@ def create_model_set(name, tests):
         'n_xpass'  : sum([1 for test in tests if test['result'] == 'xpass']),
         'n_total'  : len(tests)
     }
-    d['all_pass'] = d['n_passed'] == len(tests)
+    d['rel_pass'] = d['n_passed'] / (d['n_total'] - d['n_skipped'])
     return d
 
 
