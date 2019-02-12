@@ -6,10 +6,26 @@
 <h2>Race {{ race.name }}</h2>
 <p>{{ race.n_total }} tests ran. </p>
 
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Result</th>
+    </tr>
+
+    {% for model_set in race.model_sets -%}
+    <tr class="results-table-row">
+        <td>{{ model_set.name }}</td>
+        <td class="summary-result">{{ model_set.all_pass }}</td>
+    </tr>
+    {%- endfor %}
+
+</table>
+
 {% for model_set in race.model_sets -%}
 <h2>Tests for {{ model_set.name }}</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 {% macro checkbox(type, n) -%}
 <input 
     checked="true" 

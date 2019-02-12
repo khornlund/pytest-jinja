@@ -24,58 +24,92 @@
     </table>
 
     <h2>Summary</h2>
-    <table class="summary-table">
-            <tr>
-                <th>Race</th>
-                <th>Result</th>
-            </tr>
-            
-            <tr>
-                <td>Race 0</td>
-                <td class="summary-result">False</td>
-            </tr><tr>
-                <td>Race 1</td>
-                <td class="summary-result">False</td>
-            </tr><tr>
-                <td>Race 2</td>
-                <td class="summary-result">False</td>
-            </tr><tr>
-                <td>Race 3</td>
-                <td class="summary-result">False</td>
-            </tr><tr>
-                <td>Race 4</td>
-                <td class="summary-result">False</td>
-            </tr><tr>
-                <td>Race 5</td>
-                <td class="summary-result">False</td>
-            </tr><tr>
-                <td>Race 6</td>
-                <td class="summary-result">False</td>
-            </tr><tr>
-                <td>Race 7</td>
-                <td class="summary-result">False</td>
-            </tr><tr>
-                <td>Race 8</td>
-                <td class="summary-result">False</td>
-            </tr><tr>
-                <td>Race 9</td>
-                <td class="summary-result">False</td>
-            </tr>
-        </table>
-
-
-
-
     <p>200 tests ran in 0.9949996471405029 seconds. </p>
+
+    <input
+        checked="true"
+        class="filter"
+        data-suffix-id="Race Test Report"
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    /><span class="passed">150 passed</span>
+    <input
+        checked="true"
+        class="filter"
+        data-suffix-id="Race Test Report"
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    /><span class="failed">50 failed</span>
+
+    <table class="results-table summary-table">
+        <tr>
+            <th>Race</th>
+            <th>Result</th>
+        </tr>
+        <tr class="results-table-row">
+            <td>Race 0</td>
+            <td class="summary-result">False</td>
+        </tr><tr class="results-table-row">
+            <td>Race 1</td>
+            <td class="summary-result">False</td>
+        </tr><tr class="results-table-row">
+            <td>Race 2</td>
+            <td class="summary-result">False</td>
+        </tr><tr class="results-table-row">
+            <td>Race 3</td>
+            <td class="summary-result">False</td>
+        </tr><tr class="results-table-row">
+            <td>Race 4</td>
+            <td class="summary-result">False</td>
+        </tr><tr class="results-table-row">
+            <td>Race 5</td>
+            <td class="summary-result">False</td>
+        </tr><tr class="results-table-row">
+            <td>Race 6</td>
+            <td class="summary-result">False</td>
+        </tr><tr class="results-table-row">
+            <td>Race 7</td>
+            <td class="summary-result">False</td>
+        </tr><tr class="results-table-row">
+            <td>Race 8</td>
+            <td class="summary-result">False</td>
+        </tr><tr class="results-table-row">
+            <td>Race 9</td>
+            <td class="summary-result">False</td>
+        </tr>
+    </table>
     
 <h1>Results</h1>
 
 <h2>Race 0</h2>
 <p>20 tests ran. </p>
 
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Result</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td>mustang</td>
+        <td class="summary-result">True</td>
+    </tr><tr class="results-table-row">
+        <td>fiesta</td>
+        <td class="summary-result">False</td>
+    </tr>
+
+</table>
+
 <h2>Tests for mustang</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -300,6 +334,7 @@
 </table><h2>Tests for fiesta</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -560,9 +595,26 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Race 1</h2>
 <p>20 tests ran. </p>
 
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Result</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td>mustang</td>
+        <td class="summary-result">True</td>
+    </tr><tr class="results-table-row">
+        <td>fiesta</td>
+        <td class="summary-result">False</td>
+    </tr>
+
+</table>
+
 <h2>Tests for mustang</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -787,6 +839,7 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Tests for fiesta</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -1083,9 +1136,26 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Race 2</h2>
 <p>20 tests ran. </p>
 
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Result</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td>mustang</td>
+        <td class="summary-result">True</td>
+    </tr><tr class="results-table-row">
+        <td>fiesta</td>
+        <td class="summary-result">False</td>
+    </tr>
+
+</table>
+
 <h2>Tests for mustang</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -1310,6 +1380,7 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Tests for fiesta</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -1588,9 +1659,26 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Race 3</h2>
 <p>20 tests ran. </p>
 
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Result</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td>mustang</td>
+        <td class="summary-result">True</td>
+    </tr><tr class="results-table-row">
+        <td>fiesta</td>
+        <td class="summary-result">False</td>
+    </tr>
+
+</table>
+
 <h2>Tests for mustang</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -1815,6 +1903,7 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Tests for fiesta</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -2093,9 +2182,26 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Race 4</h2>
 <p>20 tests ran. </p>
 
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Result</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td>mustang</td>
+        <td class="summary-result">True</td>
+    </tr><tr class="results-table-row">
+        <td>fiesta</td>
+        <td class="summary-result">False</td>
+    </tr>
+
+</table>
+
 <h2>Tests for mustang</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -2320,6 +2426,7 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Tests for fiesta</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -2562,9 +2669,26 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Race 5</h2>
 <p>20 tests ran. </p>
 
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Result</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td>mustang</td>
+        <td class="summary-result">True</td>
+    </tr><tr class="results-table-row">
+        <td>fiesta</td>
+        <td class="summary-result">False</td>
+    </tr>
+
+</table>
+
 <h2>Tests for mustang</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -2789,6 +2913,7 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Tests for fiesta</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -3067,9 +3192,26 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Race 6</h2>
 <p>20 tests ran. </p>
 
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Result</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td>mustang</td>
+        <td class="summary-result">True</td>
+    </tr><tr class="results-table-row">
+        <td>fiesta</td>
+        <td class="summary-result">False</td>
+    </tr>
+
+</table>
+
 <h2>Tests for mustang</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -3294,6 +3436,7 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Tests for fiesta</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -3554,9 +3697,26 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Race 7</h2>
 <p>20 tests ran. </p>
 
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Result</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td>mustang</td>
+        <td class="summary-result">True</td>
+    </tr><tr class="results-table-row">
+        <td>fiesta</td>
+        <td class="summary-result">False</td>
+    </tr>
+
+</table>
+
 <h2>Tests for mustang</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -3781,6 +3941,7 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Tests for fiesta</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -4041,9 +4202,26 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Race 8</h2>
 <p>20 tests ran. </p>
 
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Result</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td>mustang</td>
+        <td class="summary-result">True</td>
+    </tr><tr class="results-table-row">
+        <td>fiesta</td>
+        <td class="summary-result">False</td>
+    </tr>
+
+</table>
+
 <h2>Tests for mustang</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -4268,6 +4446,7 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Tests for fiesta</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -4510,9 +4689,26 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Race 9</h2>
 <p>20 tests ran. </p>
 
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Result</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td>mustang</td>
+        <td class="summary-result">True</td>
+    </tr><tr class="results-table-row">
+        <td>fiesta</td>
+        <td class="summary-result">False</td>
+    </tr>
+
+</table>
+
 <h2>Tests for mustang</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -4737,6 +4933,7 @@ tests\test_main.py:19: AssertionError</div>
 </table><h2>Tests for fiesta</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
@@ -5031,6 +5228,7 @@ tests\test_main.py:19: AssertionError</div>
 </tbody>
 
 </table>
+
 
 </body>
 
