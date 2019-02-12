@@ -216,23 +216,27 @@ function is_all_rows_hidden(value) {
   return value.hidden == false;
 }
 
+function find_next(selector, elem) {
+    while (elem && elem.nodeName != selector) {
+        elem = elem.nextElementSibling;
+    }
+
+    return elem;
+}
+
 function filter_table(elem) {
     var outcome_att = "data-test-result";
     var outcome = elem.getAttribute(outcome_att);
     var class_outcome = outcome + " results-table-row";
     var suffix_id = elem.getAttribute("data-suffix-id");
-    var table = find_all(".results-table");
+    var table = find_next("TABLE", elem);
 
-    var outcome_rows = [];
-    for (var i = 0; i < table.length; i++) {
-        outcome_rows = outcome_rows.concat(Array.from(table[i].getElementsByClassName(class_outcome)));
-    }
+    var outcome_rows = Array.from(table.getElementsByClassName(class_outcome));
 
     for(var i = 0; i < outcome_rows.length; i++){
         outcome_rows[i].hidden = !elem.checked;
     }
 
-    //update_check_boxes(elem.checked, outcome);
 
     var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
     var all_rows_hidden = rows.length == 0 ? true : false;
