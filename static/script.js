@@ -121,7 +121,6 @@ function init() {
                               }, false)
     });
 
-    set_summary_table_class();
     set_rel_class();
 };
 
@@ -252,17 +251,6 @@ function update_check_boxes(checked_status, outcome) {
     });
 }
 
-function set_summary_table_class() {
-    var results = document.querySelectorAll(".summary-result");
-    
-    results.forEach(function(element) {
-        if (element.innerHTML == "True") {
-            element.parentElement.classList.add("passed");
-        } else {
-            element.parentElement.classList.add("failed");
-        }
-    });
-}
 
 function scroll_to_race(elem) {
     var test_name = elem.innerHTML;
@@ -277,16 +265,15 @@ function scroll_to_race(elem) {
     });
 }
 
-function scroll_to_model(elem) {
-    var race_name = elem.classList[0];
-    var model_name = elem.innerHTML;
-    var table_class = "." + model_name + "-" + race_name;
-    var table = document.querySelector(table_class);
-    var scroll_distance = table.getBoundingClientRect().y;
+function scroll_to(elem) {
+    var id = elem.id;
+    var heading_id = "#heading-" + id;
+    var heading = document.querySelector(heading_id);
+    var scroll_distance = heading.getBoundingClientRect().y;
 
     window.scrollBy({
         left: 0, 
-        top: scroll_distance - 150, 
+        top: scroll_distance, 
         behavior: "smooth"
     });
 }
@@ -296,13 +283,17 @@ function set_rel_class() {
 
     rel_pass_elements.forEach(function(elem) {
         var rel_pass = parseFloat(elem.innerHTML);
-        
+
         if (rel_pass == 1) {
-            elem.classList.add("pass");
+            elem.classList.add("passed");
+            elem.parentElement.classList.add("passed");
         } else if (rel_pass < 0.95) {
-            elem.classList.add("fail");
+            elem.classList.add("failed");
+            elem.parentElement.classList.add("failed");
         } else {
             elem.classList.add("close-to-pass");
+            elem.classList.add("failed");
+            elem.parentElement.classList.add("failed");
         }
 
         elem.classList.remove("rel_pass");

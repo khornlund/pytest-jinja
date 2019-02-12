@@ -43,13 +43,13 @@ table {
 /******************************
  * TEST RESULT COLORS
  ******************************/
-span.passed, .passed .col-result, .True {
+span.passed, .passed .col-result, .passed.summary-result {
 	color: green;
 }
 span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
 	color: orange;
 }
-span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result, .False {
+span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result, .summary-result.failed {
 	color: red;
 }
 
@@ -79,22 +79,6 @@ span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, 
 	border: 1px solid #E6E6E6;
 	text-align: left;
 }
-
-/*------------------
- * 2. Extra
- *------------------*/
-
- .pass {
-	color: green;
- }
-
- .close-to-pass {
-	color: orange;
- }
-
- .fail {
-	color: red;
- }
 
 /******************************
  * RESULTS TABLE

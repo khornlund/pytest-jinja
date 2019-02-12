@@ -3,23 +3,34 @@
 <h1>Results</h1>
 
 {% for race in races -%}
-<h2>Race {{ race.name }}</h2>
+<h2 id="heading-{{ race.name }}">Race {{ race.name }}</h2>
 <p>{{ race.n_total }} tests ran. </p>
 
+{{ checkbox('passed',  race.n_total_passed) }},
+{{ checkbox('failed',  race.n_total_failed) }},
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>
         <th>Pass %</th>
         <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
         <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
     </tr>
 
     {% for model_set in race.model_sets -%}
     <tr class="results-table-row">
-        <td onclick="scroll_to_model(this)" class="{{ race.name }} scroller">{{ model_set.name }}</td>
+        <td onclick="scroll_to(this)" class="scroller" id="{{ race.name }}-{{ model_set.name }}">{{ model_set.name }}</td>
         <td class="summary-result rel_pass">{{ model_set.rel_pass }}</td>
         <td class="summary-result">{{ model_set.n_passed }}</td>
+        <td class="summary-result">{{ model_set.n_skipped }}</td>
         <td class="summary-result">{{ model_set.n_failed }}</td>
+        <td class="summary-result">{{ model_set.n_errors }}</td>
+        <td class="summary-result">{{ model_set.n_xpass }}</td>
+        <td class="summary-result">{{ model_set.n_xfail }}</td>
+
     </tr>
     {%- endfor %}
 
@@ -27,21 +38,25 @@
         <td>Totals</td>
         <td class="rel_pass">{{ race.rel_total_pass }}</td>
         <td>{{ race.n_total_passed }}</td>
+        <td>{{ race.n_total_skipped }}</td>
         <td>{{ race.n_total_failed }}</td>
+        <td>{{ race.n_total_errors }}</td>
+        <td>{{ race.n_total_xpass }}</td>
+        <td>{{ race.n_total_xfail }}</td>
     </tr>
 
 </table>
 
 {% for model_set in race.model_sets -%}
-<h2>Tests for {{ model_set.name }}</h2>
+<h2 id="heading-{{ race.name }}-{{ model_set.name }}">Tests for {{ model_set.name }}</h2>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
 
-{% macro checkbox(type, n) -%}
+{% macro checkbox(type, n, name) -%}
 <input 
     checked="true" 
     class="filter" 
-    data-suffix-id="{{ race.name }}" 
+    data-suffix-id="{{ race.name }}-{{ name }}" 
     data-test-result="{{ type }}" 
     hidden="true" 
     name="filter_checkbox" 
@@ -50,12 +65,12 @@
 />
 <span class="{{ type }}">{{ n }} {{ type }}</span>
 {%- endmacro %}
-{{ checkbox('passed',  model_set.n_passed) }},
-{{ checkbox('skipped', model_set.n_skipped) }},
-{{ checkbox('failed',  model_set.n_failed) }},
-{{ checkbox('error',   model_set.n_errors) }},
-{{ checkbox('xfailed', model_set.n_xfail) }},
-{{ checkbox('xpassed', model_set.n_xpass) }}
+{{ checkbox('passed',  model_set.n_passed, model_set.name) }},
+{{ checkbox('skipped', model_set.n_skipped, model_set.name) }},
+{{ checkbox('failed',  model_set.n_failed, model_set.name) }},
+{{ checkbox('error',   model_set.n_errors, model_set.name) }},
+{{ checkbox('xpassed', model_set.n_xpass, model_set.name) }},
+{{ checkbox('xfailed', model_set.n_xfail, model_set.name) }}
 
 <table class="results-table {{ model_set.name }}-{{ race.name }}" id="results-table-{{ race.name }}">
     <thead id="_default-results-table-head">
