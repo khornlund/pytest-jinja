@@ -1,0 +1,17 @@
+# How to use anaconda
+
+# open anaconda prompt
+
+# activate environment
+
+`conda activate pytest`
+
+# change directory
+
+`cd C:\Users\ALSZ\Documents\pytest-jinja`
+
+# run render script
+
+`python pytest_jinja/render.py`
+
+# this will create rendered.html

@@ -50,6 +50,7 @@ class TestCollectionBase(Serialisable):
             'n_xfail',
             'n_xpass',
             'n_total',
+            'p_passed',
             'is_leaf',
             'child_type',
             'prefix'

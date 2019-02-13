@@ -1,0 +1,15 @@
+{% extends "results.html" %}
+{% block table_row %}
+<tbody class="{{ test.result }} results-table-row">
+    <tr>
+        <td class="col-result">{{ test.result }}</td>
+        <td class="col-name">{{ test.nodeid }}</td>
+        <td class="col-duration">{{ test.duration }}</td>
+    </tr>
+    <tr>
+        <td class="extra" colspan="3">
+            <div class="log">{{ test.log }}</div>
+        </td>
+    </tr>
+</tbody>
+{% endblock %}
