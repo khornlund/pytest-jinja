@@ -23,26 +23,12 @@
         </tr>
     </table>
 
-    <h2>Summary</h2>
-    <p>{{ n_total }} tests ran in {{ duration }} seconds. </p>
+    <h1>Results</h1>
+    <p>{{ n_tests }} tests ran in {{ duration }} seconds. </p>
 
+    {% for child in children recursive %}
 
-    {% macro checkbox(type, n, name) -%}
-    <input 
-        checked="true" 
-        class="filter" 
-        data-suffix-id="{{ name }}" 
-        data-test-result="{{ type }}" 
-        hidden="true" 
-        name="filter_checkbox" 
-        onChange="filter_table(this)" 
-        type="checkbox" 
-    />
-    <span class="{{ type }}">{{ n }} {{ type }}</span>
-    {%- endmacro %}
-    {{ checkbox('passed', n_races_passed, report_name) }}
-    {{ checkbox('failed', n_races_failed, report_name) }}
-
+    {% if not child.is_leaf %}
     <table class="results-table summary-table">
         <tr>
             <th>Race</th>
@@ -54,32 +40,78 @@
             <th>Total xPassed Tests</th>
             <th>Total xFailed Tests</th>
         </tr>
-
-        {% for race in races -%}
+        {% for inner_child in child.children -%}
         <tr class="results-table-row">
-            <td onclick="scroll_to(this)" class="scroller" id="{{ race.name }}">{{ race.name }}</td>
-            <td class="summary-result rel_pass">{{ race.rel_total_pass }}</td>
-            <td class="summary-result">{{ race.n_total_passed }}</td>
-            <td class="summary-result">{{ race.n_total_skipped }}</td>
-            <td class="summary-result">{{ race.n_total_failed }}</td>
-            <td class="summary-result">{{ race.n_total_errors }}</td>
-            <td class="summary-result">{{ race.n_total_xpass }}</td>
-            <td class="summary-result">{{ race.n_total_xfail }}</td>
+            <td onclick="scroll_to(this)" class="scroller" id="{{ inner_child.name }}">{{ inner_child.name }}</td>
+            <td class="summary-result rel_pass">{{ inner_child['p_passed'] }}</td>
+            <td class="summary-result">{{ inner_child['n_passed'] }}</td>
+            <td class="summary-result">{{ inner_child['n_skipped'] }}</td>
+            <td class="summary-result">{{ inner_child['n_failed'] }}</td>
+            <td class="summary-result">{{ inner_child['n_errors'] }}</td>
+            <td class="summary-result">{{ inner_child['n_xpass'] }}</td>
+            <td class="summary-result">{{ inner_child['n_xfail'] }}</td>
         </tr>
         {%- endfor %}
-
         <tr style="font-weight:bold">
             <td>Totals</td>
-            <td class="rel_pass">{{ rel_total_pass }}</td>
-            <td>{{ n_passed }}</td>
-            <td>{{ n_skipped }}</td>
-            <td>{{ n_failed }}</td>
-            <td>{{ n_errors }}</td>
-            <td>{{ n_xpass }}</td>
-            <td>{{ n_xfail }}</td>
+            <td class="rel_pass">{{ child.p_passed }}</td>
+            <td>{{ child.n_passed }}</td>
+            <td>{{ child.n_skipped }}</td>
+            <td>{{ child.n_failed }}</td>
+            <td>{{ child.n_errors }}</td>
+            <td>{{ child.n_xpass }}</td>
+            <td>{{ child.n_xfail }}</td>
         </tr>
     </table>
-    {% block results %}{% endblock %}
-
+    {{ loop(child.children) }}
+    {% else %}
+        {% macro checkbox(type, n, name) -%}
+        <input 
+            checked="true" 
+            class="filter" 
+            data-suffix-id="{{ child.name }}-{{ name }}" 
+            data-test-result="{{ type }}" 
+            hidden="true" 
+            name="filter_checkbox" 
+            onChange="filter_table(this)" 
+            type="checkbox" 
+        />
+        <span class="{{ type }}">{{ n }} {{ type }}</span>
+        {%- endmacro %}
+        {{ checkbox('passed',  child.n_passed, child.name) }}
+        {{ checkbox('skipped', child.n_skipped, child.name) }}
+        {{ checkbox('failed',  child.n_failed, child.name) }}
+        {{ checkbox('error',   child.n_errors, child.name) }}
+        {{ checkbox('xpassed', child.n_xpass, child.name) }}
+        {{ checkbox('xfailed', child.n_xfail, child.name) }}
+        
+        <table class="results-table {{ child.name }}" id="results-table-{{ child.name }}">
+            <thead id="_default-results-table-head">
+                <tr>
+                    <th class="sortable result initial-sort" col="result">Result</th>
+                    <th class="sortable" col="name">Test</th>
+                    <th class="sortable numeric" col="duration">Duration</th>
+                </tr>
+                <tr hidden="true" id="not-found-message{{ child.name }}">
+                    <th colspan="3">No results found. Try to check the filters</th>
+                </tr>
+            </thead>
+            {% for test in child.children -%}
+            <tbody class="{{ test.result }} results-table-row">
+                <tr>
+                    <td class="col-result">{{ test.result }}</td>
+                    <td class="col-name">{{ test.nodeid }}</td>
+                    <td class="col-duration">{{ test.duration }}</td>
+                </tr>
+                <tr>
+                    <td class="extra" colspan="3">
+                        <div class="log">{{ test.log }}</div>
+                    </td>
+                </tr>
+            </tbody>
+            {%- endfor %}
+        </table>
+    {% endif %}
+    {% endfor %}
 </body>
 </html>
