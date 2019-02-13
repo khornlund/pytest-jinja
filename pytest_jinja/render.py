@@ -50,7 +50,9 @@ class TestCollectionBase(Serialisable):
             'n_xfail',
             'n_xpass',
             'n_total',
-            'is_leaf'
+            'is_leaf',
+            'child_type',
+            'prefix'
         ]
 
     @property
@@ -73,18 +75,22 @@ class TestCollectionCollection(TestCollectionBase):
 
     is_leaf = 0
 
-    def __init__(self, name, tests, sort_by):
+    def __init__(self, prefix, name, tests, sort_by):
         super().__init__(tests)
+        self.prefix = prefix
         self.name = name
         sort_by_copy = sort_by.copy()
         sort_criteria = sort_by_copy.pop(0)
         sorted_tests = self.sort_tests(tests, sort_criteria)
         if sort_by_copy:
-            self.children = [TestCollectionCollection(f'{sort_criteria}: {key}', val, sort_by_copy) 
-                                for key, val in sorted_tests.items()]
+            self.children = [
+                TestCollectionCollection(sort_criteria, key, val, sort_by_copy) 
+                for key, val in sorted_tests.items()]
         else:
-            self.children = [TestCollection(f'{sort_criteria}: {key}', val) 
-                                for key, val in sorted_tests.items()]
+            self.children = [
+                TestCollection(sort_criteria, key, val) 
+                for key, val in sorted_tests.items()]
+        self.child_type = sort_criteria
 
     def sort_tests(self, tests, criteria):
         groups = {}
@@ -101,10 +107,12 @@ class TestCollection(TestCollectionBase):
 
     is_leaf = 1
 
-    def __init__(self, name, tests):
+    def __init__(self, prefix, name, tests):
         super().__init__(tests)
+        self.prefix = prefix
         self.name = name
         self.children = tests
+        self.child_type = 'tests'
 
 
 class TestCollectionFactory:
@@ -112,9 +120,9 @@ class TestCollectionFactory:
     @classmethod
     def build(cls, tests, sort_metadata):
         if sort_metadata:
-            return TestCollectionCollection('Results', tests, sort_metadata)
+            return TestCollectionCollection('', 'Results', tests, sort_metadata)
         else:
-            return TestCollection('Results', tests)
+            return TestCollection('', 'Results', tests)
 
 
 class TestResult(Serialisable):
