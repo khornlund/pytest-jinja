@@ -43,23 +43,47 @@ table {
 /******************************
  * TEST RESULT COLORS
  ******************************/
-span.passed, .passed .col-result {
+span.passed, .passed .col-result, .passed.summary-result {
 	color: green;
 }
-span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
+span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result, .close-to-pass {
 	color: orange;
 }
-span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result  {
+span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result, .summary-result.failed:not(.close-to-pass) {
 	color: red;
 }
 
+/******************************
+ * SUMMARY TABLE
+ *
+ * 1. Table Layout
+ * 2. Extra
+ * 3. Sorting items
+ *
+ ******************************/
+
+/*------------------
+ * 1. Table Layout
+ *------------------*/
+
+.results-table.summary-table {
+	width: auto;
+}
+
+.summary-table th {
+	font-weight: bold
+}
+
+.summary-table th, .summary-table td {
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+	text-align: left;
+}
 
 /******************************
  * RESULTS TABLE
  *
  * 1. Table Layout
- * 2. Extra
- * 3. Sorting items
  *
  ******************************/
 
@@ -79,6 +103,7 @@ span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, 
 	border: 1px solid #E6E6E6;
 	text-align: left
 }
+
 .results-table th {
 	font-weight: bold
 }
@@ -125,6 +150,10 @@ div.image img {
 	content: " (hide details)";
 	color: #BBB;
 	font-style: italic;
+	cursor: pointer;
+}
+
+.scroller:hover {
 	cursor: pointer;
 }
 

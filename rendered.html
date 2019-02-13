@@ -22,78 +22,285 @@
             <td>3.6.6</td>
         </tr>
     </table>
+
     <h2>Summary</h2>
     <p>200 tests ran in 0.9949996471405029 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
+
+
+    
+    <input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="Race Test Report" 
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="passed">0 passed</span>
+    <input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="Race Test Report" 
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="failed">10 failed</span>
+
+    <table class="results-table summary-table">
+        <tr>
+            <th>Race</th>
+            <th>Pass %</th>
+            <th>Total Passed Tests</th>
+            <th>Total Skipped Tests</th>
+            <th>Total Failed Tests</th>
+            <th>Total Errors</th>
+            <th>Total xPassed Tests</th>
+            <th>Total xFailed Tests</th>
+        </tr>
+
+        <tr class="results-table-row">
+            <td onclick="scroll_to(this)" class="scroller" id="0">0</td>
+            <td class="summary-result rel_pass">0.8</td>
+            <td class="summary-result">16</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">4</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+        </tr><tr class="results-table-row">
+            <td onclick="scroll_to(this)" class="scroller" id="1">1</td>
+            <td class="summary-result rel_pass">0.6</td>
+            <td class="summary-result">12</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">8</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+        </tr><tr class="results-table-row">
+            <td onclick="scroll_to(this)" class="scroller" id="2">2</td>
+            <td class="summary-result rel_pass">0.7</td>
+            <td class="summary-result">14</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">6</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+        </tr><tr class="results-table-row">
+            <td onclick="scroll_to(this)" class="scroller" id="3">3</td>
+            <td class="summary-result rel_pass">0.7</td>
+            <td class="summary-result">14</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">6</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+        </tr><tr class="results-table-row">
+            <td onclick="scroll_to(this)" class="scroller" id="4">4</td>
+            <td class="summary-result rel_pass">0.9</td>
+            <td class="summary-result">18</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">2</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+        </tr><tr class="results-table-row">
+            <td onclick="scroll_to(this)" class="scroller" id="5">5</td>
+            <td class="summary-result rel_pass">0.7</td>
+            <td class="summary-result">14</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">6</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+        </tr><tr class="results-table-row">
+            <td onclick="scroll_to(this)" class="scroller" id="6">6</td>
+            <td class="summary-result rel_pass">0.8</td>
+            <td class="summary-result">16</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">4</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+        </tr><tr class="results-table-row">
+            <td onclick="scroll_to(this)" class="scroller" id="7">7</td>
+            <td class="summary-result rel_pass">0.8</td>
+            <td class="summary-result">16</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">4</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+        </tr><tr class="results-table-row">
+            <td onclick="scroll_to(this)" class="scroller" id="8">8</td>
+            <td class="summary-result rel_pass">0.9</td>
+            <td class="summary-result">18</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">2</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+        </tr><tr class="results-table-row">
+            <td onclick="scroll_to(this)" class="scroller" id="9">9</td>
+            <td class="summary-result rel_pass">0.6</td>
+            <td class="summary-result">12</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">8</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+            <td class="summary-result">0</td>
+        </tr>
+
+        <tr style="font-weight:bold">
+            <td>Totals</td>
+            <td class="rel_pass">0.75</td>
+            <td>150</td>
+            <td>0</td>
+            <td>50</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </table>
     
 <h1>Results</h1>
 
-<h2>Race 0</h2>
+<h2 id="heading-0">Race 0</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>20 tests ran. </p>
 
-<h2>Tests for mustang</h2>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="passed">1 passed</span>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="failed">1 failed</span>
+
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Pass %</th>
+        <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
+        <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="0-mustang">mustang</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr><tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="0-fiesta">fiesta</td>
+        <td class="summary-result rel_pass">0.6</td>
+        <td class="summary-result">6</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">4</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.8</td>
+        <td>16</td>
+        <td>0</td>
+        <td>4</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+
+</table>
+
+<h2 id="heading-0-mustang">Tests for mustang</h2>
+<p>
+    <a href="javascript:scroll_to_parent(0)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="0-mustang" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">10 passed</span>,
+<span class="passed">10 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="0-mustang" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="0-mustang" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">0 failed</span>,
+<span class="failed">0 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="0-mustang" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="0-mustang" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -101,17 +308,27 @@
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="0-mustang" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table mustang-0" id="results-table-0">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message0">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -120,10 +337,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[0-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -134,10 +350,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[1-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -148,10 +363,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-0-0]</td>
         <td class="col-duration">0.004</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -162,10 +376,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-0-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -176,10 +389,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-0-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -190,10 +402,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-0-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -204,10 +415,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-0-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -218,10 +428,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-0-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -232,10 +441,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-0-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -246,78 +454,72 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-0-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Tests for fiesta</h2>
+</table><h2 id="heading-0-fiesta">Tests for fiesta</h2>
+<p>
+    <a href="javascript:scroll_to_parent(0)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="0-fiesta" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">6 passed</span>,
+<span class="passed">6 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="0-fiesta" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="0-fiesta" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">4 failed</span>,
+<span class="failed">4 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="0-fiesta" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="0-fiesta" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -325,17 +527,27 @@
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="0-fiesta" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table fiesta-0" id="results-table-0">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message0">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -344,10 +556,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[0-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -358,10 +569,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[1-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -372,10 +582,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-0-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -386,10 +595,9 @@
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-0-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -400,10 +608,9 @@
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-0-2]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x00000000046BF898>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -423,10 +630,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-0-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x00000000046ED470>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -446,10 +652,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-0-0]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -460,10 +665,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-0-1]</td>
         <td class="col-duration">0.004</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -474,10 +678,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-0-2]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004753F28>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -497,10 +700,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-0-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000476C2B0>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -515,72 +717,138 @@ tests\test_main.py:19: AssertionError</div>
     </tr>
 </tbody>
 
-</table><h2>Race 1</h2>
+</table><h2 id="heading-1">Race 1</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>20 tests ran. </p>
 
-<h2>Tests for mustang</h2>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="passed">1 passed</span>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="failed">1 failed</span>
+
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Pass %</th>
+        <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
+        <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="1-mustang">mustang</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr><tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="1-fiesta">fiesta</td>
+        <td class="summary-result rel_pass">0.2</td>
+        <td class="summary-result">2</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">8</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.6</td>
+        <td>12</td>
+        <td>0</td>
+        <td>8</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+
+</table>
+
+<h2 id="heading-1-mustang">Tests for mustang</h2>
+<p>
+    <a href="javascript:scroll_to_parent(1)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="1-mustang" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">10 passed</span>,
+<span class="passed">10 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="1-mustang" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="1-mustang" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">0 failed</span>,
+<span class="failed">0 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="1-mustang" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="1-mustang" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -588,17 +856,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="1-mustang" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table mustang-1" id="results-table-1">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message1">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -607,10 +885,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[0-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -621,10 +898,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[1-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -635,10 +911,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-1-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -649,10 +924,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-1-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -663,10 +937,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-1-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -677,10 +950,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-1-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -691,10 +963,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-1-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -705,10 +976,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-1-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -719,10 +989,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-1-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -733,78 +1002,72 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-1-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Tests for fiesta</h2>
+</table><h2 id="heading-1-fiesta">Tests for fiesta</h2>
+<p>
+    <a href="javascript:scroll_to_parent(1)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="1-fiesta" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">2 passed</span>,
+<span class="passed">2 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="1-fiesta" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="1-fiesta" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">8 failed</span>,
+<span class="failed">8 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="1-fiesta" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="1-fiesta" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -812,17 +1075,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="1-fiesta" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table fiesta-1" id="results-table-1">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message1">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -831,10 +1104,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[0-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -845,10 +1117,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[1-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -859,10 +1130,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-1-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x00000000046FB320>, wheel_num = 0
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -882,10 +1152,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-1-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004704470>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -905,10 +1174,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-1-2]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004625400>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -928,10 +1196,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-1-3]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000467C080>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -951,10 +1218,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-1-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000475C0F0>, wheel_num = 0
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -974,10 +1240,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-1-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004753208>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -997,10 +1262,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-1-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000474DA90>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -1020,10 +1284,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-1-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004753BE0>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -1038,72 +1301,138 @@ tests\test_main.py:19: AssertionError</div>
     </tr>
 </tbody>
 
-</table><h2>Race 2</h2>
+</table><h2 id="heading-2">Race 2</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>20 tests ran. </p>
 
-<h2>Tests for mustang</h2>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="passed">1 passed</span>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="failed">1 failed</span>
+
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Pass %</th>
+        <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
+        <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="2-mustang">mustang</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr><tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="2-fiesta">fiesta</td>
+        <td class="summary-result rel_pass">0.4</td>
+        <td class="summary-result">4</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">6</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.7</td>
+        <td>14</td>
+        <td>0</td>
+        <td>6</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+
+</table>
+
+<h2 id="heading-2-mustang">Tests for mustang</h2>
+<p>
+    <a href="javascript:scroll_to_parent(2)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="2-mustang" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">10 passed</span>,
+<span class="passed">10 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="2-mustang" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="2-mustang" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">0 failed</span>,
+<span class="failed">0 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="2-mustang" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="2-mustang" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -1111,17 +1440,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="2-mustang" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table mustang-2" id="results-table-2">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message2">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -1130,10 +1469,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[0-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1144,10 +1482,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[1-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1158,10 +1495,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-2-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1172,10 +1508,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-2-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1186,10 +1521,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-2-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1200,10 +1534,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-2-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1214,10 +1547,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-2-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1228,10 +1560,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-2-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1242,10 +1573,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-2-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1256,78 +1586,72 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-2-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Tests for fiesta</h2>
+</table><h2 id="heading-2-fiesta">Tests for fiesta</h2>
+<p>
+    <a href="javascript:scroll_to_parent(2)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="2-fiesta" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">4 passed</span>,
+<span class="passed">4 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="2-fiesta" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="2-fiesta" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">6 failed</span>,
+<span class="failed">6 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="2-fiesta" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="2-fiesta" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -1335,17 +1659,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="2-fiesta" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table fiesta-2" id="results-table-2">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message2">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -1354,10 +1688,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[0-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1368,10 +1701,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[1-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1382,10 +1714,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-2-0]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004704470>, wheel_num = 0
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -1405,10 +1736,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-2-1]</td>
         <td class="col-duration">0.004</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1419,10 +1749,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-2-2]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004697588>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -1442,10 +1771,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-2-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004665198>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -1465,10 +1793,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-2-0]</td>
         <td class="col-duration">0.004</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000475C5C0>, wheel_num = 0
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -1488,10 +1815,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-2-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1502,10 +1828,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-2-2]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000472E470>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -1525,10 +1850,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-2-3]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000475C710>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -1543,72 +1867,138 @@ tests\test_main.py:19: AssertionError</div>
     </tr>
 </tbody>
 
-</table><h2>Race 3</h2>
+</table><h2 id="heading-3">Race 3</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>20 tests ran. </p>
 
-<h2>Tests for mustang</h2>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="passed">1 passed</span>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="failed">1 failed</span>
+
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Pass %</th>
+        <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
+        <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="3-mustang">mustang</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr><tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="3-fiesta">fiesta</td>
+        <td class="summary-result rel_pass">0.4</td>
+        <td class="summary-result">4</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">6</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.7</td>
+        <td>14</td>
+        <td>0</td>
+        <td>6</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+
+</table>
+
+<h2 id="heading-3-mustang">Tests for mustang</h2>
+<p>
+    <a href="javascript:scroll_to_parent(3)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="3-mustang" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">10 passed</span>,
+<span class="passed">10 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="3-mustang" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="3-mustang" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">0 failed</span>,
+<span class="failed">0 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="3-mustang" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="3-mustang" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -1616,17 +2006,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="3-mustang" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table mustang-3" id="results-table-3">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message3">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -1635,10 +2035,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[0-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1649,10 +2048,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[1-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1663,10 +2061,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-3-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1677,10 +2074,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-3-1]</td>
         <td class="col-duration">0.005</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1691,10 +2087,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-3-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1705,10 +2100,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-3-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1719,10 +2113,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-3-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1733,10 +2126,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-3-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1747,10 +2139,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-3-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1761,78 +2152,72 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-3-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Tests for fiesta</h2>
+</table><h2 id="heading-3-fiesta">Tests for fiesta</h2>
+<p>
+    <a href="javascript:scroll_to_parent(3)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="3-fiesta" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">4 passed</span>,
+<span class="passed">4 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="3-fiesta" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="3-fiesta" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">6 failed</span>,
+<span class="failed">6 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="3-fiesta" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="3-fiesta" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -1840,17 +2225,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="3-fiesta" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table fiesta-3" id="results-table-3">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message3">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -1859,10 +2254,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[0-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1873,10 +2267,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[1-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1887,10 +2280,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-3-0]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1901,10 +2293,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-3-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x00000000046ED518>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -1924,10 +2315,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-3-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x00000000046AD240>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -1947,10 +2337,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-3-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x00000000046B1860>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -1970,10 +2359,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-3-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -1984,10 +2372,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-3-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004753BA8>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -2007,10 +2394,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-3-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000471DB70>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -2030,10 +2416,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-3-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004753F28>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -2048,72 +2433,138 @@ tests\test_main.py:19: AssertionError</div>
     </tr>
 </tbody>
 
-</table><h2>Race 4</h2>
+</table><h2 id="heading-4">Race 4</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>20 tests ran. </p>
 
-<h2>Tests for mustang</h2>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="passed">1 passed</span>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="failed">1 failed</span>
+
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Pass %</th>
+        <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
+        <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="4-mustang">mustang</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr><tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="4-fiesta">fiesta</td>
+        <td class="summary-result rel_pass">0.8</td>
+        <td class="summary-result">8</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">2</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.9</td>
+        <td>18</td>
+        <td>0</td>
+        <td>2</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+
+</table>
+
+<h2 id="heading-4-mustang">Tests for mustang</h2>
+<p>
+    <a href="javascript:scroll_to_parent(4)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="4-mustang" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">10 passed</span>,
+<span class="passed">10 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="4-mustang" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="4-mustang" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">0 failed</span>,
+<span class="failed">0 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="4-mustang" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="4-mustang" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -2121,17 +2572,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="4-mustang" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table mustang-4" id="results-table-4">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message4">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -2140,10 +2601,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[0-4]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2154,10 +2614,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[1-4]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2168,10 +2627,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-4-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2182,10 +2640,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-4-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2196,10 +2653,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-4-2]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2210,10 +2666,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-4-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2224,10 +2679,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-4-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2238,10 +2692,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-4-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2252,10 +2705,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-4-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2266,78 +2718,72 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-4-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Tests for fiesta</h2>
+</table><h2 id="heading-4-fiesta">Tests for fiesta</h2>
+<p>
+    <a href="javascript:scroll_to_parent(4)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="4-fiesta" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">8 passed</span>,
+<span class="passed">8 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="4-fiesta" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="4-fiesta" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">2 failed</span>,
+<span class="failed">2 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="4-fiesta" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="4-fiesta" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -2345,17 +2791,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="4-fiesta" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table fiesta-4" id="results-table-4">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message4">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -2364,10 +2820,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[0-4]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2378,10 +2833,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[1-4]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2392,10 +2846,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-4-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2406,10 +2859,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-4-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2420,10 +2872,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-4-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x00000000046ED438>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -2443,10 +2894,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-4-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2457,10 +2907,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-4-0]</td>
         <td class="col-duration">0.004</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2471,10 +2920,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-4-1]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2485,10 +2933,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-4-2]</td>
         <td class="col-duration">0</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x00000000047227B8>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -2508,81 +2955,146 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-4-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Race 5</h2>
+</table><h2 id="heading-5">Race 5</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>20 tests ran. </p>
 
-<h2>Tests for mustang</h2>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="passed">1 passed</span>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="failed">1 failed</span>
+
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Pass %</th>
+        <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
+        <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="5-mustang">mustang</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr><tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="5-fiesta">fiesta</td>
+        <td class="summary-result rel_pass">0.4</td>
+        <td class="summary-result">4</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">6</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.7</td>
+        <td>14</td>
+        <td>0</td>
+        <td>6</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+
+</table>
+
+<h2 id="heading-5-mustang">Tests for mustang</h2>
+<p>
+    <a href="javascript:scroll_to_parent(5)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="5-mustang" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">10 passed</span>,
+<span class="passed">10 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="5-mustang" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="5-mustang" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">0 failed</span>,
+<span class="failed">0 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="5-mustang" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="5-mustang" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -2590,17 +3102,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="5-mustang" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table mustang-5" id="results-table-5">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message5">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -2609,10 +3131,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[0-5]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2623,10 +3144,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[1-5]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2637,10 +3157,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-5-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2651,10 +3170,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-5-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2665,10 +3183,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-5-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2679,10 +3196,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-5-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2693,10 +3209,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-5-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2707,10 +3222,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-5-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2721,10 +3235,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-5-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2735,78 +3248,72 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-5-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Tests for fiesta</h2>
+</table><h2 id="heading-5-fiesta">Tests for fiesta</h2>
+<p>
+    <a href="javascript:scroll_to_parent(5)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="5-fiesta" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">4 passed</span>,
+<span class="passed">4 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="5-fiesta" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="5-fiesta" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">6 failed</span>,
+<span class="failed">6 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="5-fiesta" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="5-fiesta" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -2814,17 +3321,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="5-fiesta" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table fiesta-5" id="results-table-5">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message5">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -2833,10 +3350,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[0-5]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2847,10 +3363,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[1-5]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2861,10 +3376,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-5-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000471D860>, wheel_num = 0
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -2884,10 +3398,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-5-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x00000000046B18D0>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -2907,10 +3420,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-5-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -2921,10 +3433,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-5-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004722F98>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -2944,10 +3455,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-5-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x00000000046EDA90>, wheel_num = 0
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -2967,10 +3477,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-5-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004753438>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -2990,10 +3499,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-5-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3004,10 +3512,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-5-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000467C908>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -3022,72 +3529,138 @@ tests\test_main.py:19: AssertionError</div>
     </tr>
 </tbody>
 
-</table><h2>Race 6</h2>
+</table><h2 id="heading-6">Race 6</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>20 tests ran. </p>
 
-<h2>Tests for mustang</h2>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="passed">1 passed</span>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="failed">1 failed</span>
+
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Pass %</th>
+        <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
+        <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="6-mustang">mustang</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr><tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="6-fiesta">fiesta</td>
+        <td class="summary-result rel_pass">0.6</td>
+        <td class="summary-result">6</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">4</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.8</td>
+        <td>16</td>
+        <td>0</td>
+        <td>4</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+
+</table>
+
+<h2 id="heading-6-mustang">Tests for mustang</h2>
+<p>
+    <a href="javascript:scroll_to_parent(6)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="6-mustang" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">10 passed</span>,
+<span class="passed">10 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="6-mustang" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="6-mustang" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">0 failed</span>,
+<span class="failed">0 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="6-mustang" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="6-mustang" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -3095,17 +3668,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="6-mustang" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table mustang-6" id="results-table-6">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message6">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -3114,10 +3697,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[0-6]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3128,10 +3710,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[1-6]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3142,10 +3723,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-6-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3156,10 +3736,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-6-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3170,10 +3749,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-6-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3184,10 +3762,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-6-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3198,10 +3775,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-6-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3212,10 +3788,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-6-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3226,10 +3801,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-6-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3240,78 +3814,72 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-6-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Tests for fiesta</h2>
+</table><h2 id="heading-6-fiesta">Tests for fiesta</h2>
+<p>
+    <a href="javascript:scroll_to_parent(6)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="6-fiesta" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">6 passed</span>,
+<span class="passed">6 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="6-fiesta" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="6-fiesta" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">4 failed</span>,
+<span class="failed">4 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="6-fiesta" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="6-fiesta" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -3319,17 +3887,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="6-fiesta" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table fiesta-6" id="results-table-6">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message6">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -3338,10 +3916,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[0-6]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3352,10 +3929,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[1-6]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3366,10 +3942,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-6-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3380,10 +3955,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-6-1]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000471D9E8>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -3403,10 +3977,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-6-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3417,10 +3990,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-6-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000472EBE0>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -3440,10 +4012,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-6-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3454,10 +4025,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-6-1]</td>
         <td class="col-duration">0.004</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000475C710>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -3477,10 +4047,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-6-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3491,10 +4060,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-6-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004704160>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -3509,72 +4077,138 @@ tests\test_main.py:19: AssertionError</div>
     </tr>
 </tbody>
 
-</table><h2>Race 7</h2>
+</table><h2 id="heading-7">Race 7</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>20 tests ran. </p>
 
-<h2>Tests for mustang</h2>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="passed">1 passed</span>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="failed">1 failed</span>
+
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Pass %</th>
+        <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
+        <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="7-mustang">mustang</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr><tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="7-fiesta">fiesta</td>
+        <td class="summary-result rel_pass">0.6</td>
+        <td class="summary-result">6</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">4</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.8</td>
+        <td>16</td>
+        <td>0</td>
+        <td>4</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+
+</table>
+
+<h2 id="heading-7-mustang">Tests for mustang</h2>
+<p>
+    <a href="javascript:scroll_to_parent(7)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="7-mustang" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">10 passed</span>,
+<span class="passed">10 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="7-mustang" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="7-mustang" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">0 failed</span>,
+<span class="failed">0 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="7-mustang" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="7-mustang" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -3582,17 +4216,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="7-mustang" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table mustang-7" id="results-table-7">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message7">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -3601,10 +4245,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[0-7]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3615,10 +4258,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[1-7]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3629,10 +4271,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-7-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3643,10 +4284,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-7-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3657,10 +4297,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-7-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3671,10 +4310,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-7-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3685,10 +4323,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-7-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3699,10 +4336,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-7-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3713,10 +4349,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-7-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3727,78 +4362,72 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-7-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Tests for fiesta</h2>
+</table><h2 id="heading-7-fiesta">Tests for fiesta</h2>
+<p>
+    <a href="javascript:scroll_to_parent(7)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="7-fiesta" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">6 passed</span>,
+<span class="passed">6 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="7-fiesta" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="7-fiesta" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">4 failed</span>,
+<span class="failed">4 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="7-fiesta" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="7-fiesta" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -3806,17 +4435,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="7-fiesta" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table fiesta-7" id="results-table-7">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message7">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -3825,10 +4464,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[0-7]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3839,10 +4477,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[1-7]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3853,10 +4490,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-7-0]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004740208>, wheel_num = 0
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -3876,10 +4512,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-7-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3890,10 +4525,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-7-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3904,10 +4538,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-7-3]</td>
         <td class="col-duration">0</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004748A20>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -3927,10 +4560,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-7-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x00000000045F8E80>, wheel_num = 0
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -3950,10 +4582,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-7-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3964,10 +4595,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-7-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -3978,10 +4608,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-7-3]</td>
         <td class="col-duration">0</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004618160>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -3996,72 +4625,138 @@ tests\test_main.py:19: AssertionError</div>
     </tr>
 </tbody>
 
-</table><h2>Race 8</h2>
+</table><h2 id="heading-8">Race 8</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>20 tests ran. </p>
 
-<h2>Tests for mustang</h2>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="passed">1 passed</span>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="failed">1 failed</span>
+
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Pass %</th>
+        <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
+        <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="8-mustang">mustang</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr><tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="8-fiesta">fiesta</td>
+        <td class="summary-result rel_pass">0.8</td>
+        <td class="summary-result">8</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">2</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.9</td>
+        <td>18</td>
+        <td>0</td>
+        <td>2</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+
+</table>
+
+<h2 id="heading-8-mustang">Tests for mustang</h2>
+<p>
+    <a href="javascript:scroll_to_parent(8)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="8-mustang" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">10 passed</span>,
+<span class="passed">10 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="8-mustang" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="8-mustang" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">0 failed</span>,
+<span class="failed">0 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="8-mustang" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="8-mustang" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -4069,17 +4764,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="8-mustang" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table mustang-8" id="results-table-8">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message8">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -4088,10 +4793,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[0-8]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4102,10 +4806,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[1-8]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4116,10 +4819,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-8-0]</td>
         <td class="col-duration">0</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4130,10 +4832,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-8-1]</td>
         <td class="col-duration">0.004</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4144,10 +4845,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-8-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4158,10 +4858,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-8-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4172,10 +4871,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-8-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4186,10 +4884,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-8-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4200,10 +4897,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-8-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4214,78 +4910,72 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-8-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Tests for fiesta</h2>
+</table><h2 id="heading-8-fiesta">Tests for fiesta</h2>
+<p>
+    <a href="javascript:scroll_to_parent(8)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="8-fiesta" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">8 passed</span>,
+<span class="passed">8 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="8-fiesta" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="8-fiesta" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">2 failed</span>,
+<span class="failed">2 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="8-fiesta" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="8-fiesta" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -4293,17 +4983,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="8-fiesta" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table fiesta-8" id="results-table-8">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message8">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -4312,10 +5012,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[0-8]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4326,10 +5025,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[1-8]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4340,10 +5038,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-8-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4354,10 +5051,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-8-1]</td>
         <td class="col-duration">0</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004748470>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -4377,10 +5073,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-8-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4391,10 +5086,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-8-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4405,10 +5099,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-8-0]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4419,10 +5112,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-8-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004779438>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -4442,10 +5134,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-8-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4456,81 +5147,146 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-8-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Race 9</h2>
+</table><h2 id="heading-9">Race 9</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>20 tests ran. </p>
 
-<h2>Tests for mustang</h2>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="passed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="passed">1 passed</span>
+<input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="" 
+        data-test-result="failed" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="failed">1 failed</span>
+
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Pass %</th>
+        <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
+        <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
+    </tr>
+
+    <tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="9-mustang">mustang</td>
+        <td class="summary-result rel_pass">1.0</td>
+        <td class="summary-result">10</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr><tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="9-fiesta">fiesta</td>
+        <td class="summary-result rel_pass">0.2</td>
+        <td class="summary-result">2</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">8</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+        <td class="summary-result">0</td>
+
+    </tr>
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">0.6</td>
+        <td>12</td>
+        <td>0</td>
+        <td>8</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+
+</table>
+
+<h2 id="heading-9-mustang">Tests for mustang</h2>
+<p>
+    <a href="javascript:scroll_to_parent(9)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="9-mustang" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">10 passed</span>,
+<span class="passed">10 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="9-mustang" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="9-mustang" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">0 failed</span>,
+<span class="failed">0 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="9-mustang" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="9-mustang" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -4538,17 +5294,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="9-mustang" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table mustang-9" id="results-table-9">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message9">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -4557,10 +5323,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[0-9]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4571,10 +5336,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_engine_cylinders[1-9]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4585,10 +5349,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-9-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4599,10 +5362,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-9-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4613,10 +5375,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-9-2]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4627,10 +5388,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[0-9-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4641,10 +5401,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-9-0]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4655,10 +5414,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-9-1]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4669,10 +5427,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-9-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4683,78 +5440,72 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_mustang_wheel_diameter_gt_14[1-9-3]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
 </tbody>
 
-</table><h2>Tests for fiesta</h2>
+</table><h2 id="heading-9-fiesta">Tests for fiesta</h2>
+<p>
+    <a href="javascript:scroll_to_parent(9)">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
+
 
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="9-fiesta" 
     data-test-result="passed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="passed">2 passed</span>,
+<span class="passed">2 passed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="9-fiesta" 
     data-test-result="skipped" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="skipped">0 skipped</span>,
+<span class="skipped">0 skipped</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="9-fiesta" 
     data-test-result="failed" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="failed">8 failed</span>,
+<span class="failed">8 failed</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="9-fiesta" 
     data-test-result="error" 
     hidden="true" 
     name="filter_checkbox" 
     onChange="filter_table(this)" 
     type="checkbox" 
 />
-<span class="error">0 error</span>,
+<span class="error">0 error</span>
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
-    data-test-result="xfailed" 
-    hidden="true" 
-    name="filter_checkbox" 
-    onChange="filter_table(this)" 
-    type="checkbox" 
-/>
-<span class="xfailed">0 xfailed</span>,
-<input 
-    checked="true" 
-    class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="9-fiesta" 
     data-test-result="xpassed" 
     hidden="true" 
     name="filter_checkbox" 
@@ -4762,17 +5513,27 @@ tests\test_main.py:19: AssertionError</div>
     type="checkbox" 
 />
 <span class="xpassed">0 xpassed</span>
+<input 
+    checked="true" 
+    class="filter" 
+    data-suffix-id="9-fiesta" 
+    data-test-result="xfailed" 
+    hidden="true" 
+    name="filter_checkbox" 
+    onChange="filter_table(this)" 
+    type="checkbox" 
+/>
+<span class="xfailed">0 xfailed</span>
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table fiesta-9" id="results-table-9">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message9">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     
@@ -4781,10 +5542,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[0-9]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4795,10 +5555,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">passed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_engine_cylinders[1-9]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">No log found.</div>
         </td>
     </tr>
@@ -4809,10 +5568,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-9-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000474D1D0>, wheel_num = 0
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -4832,10 +5590,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-9-1]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004748B38>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -4855,10 +5612,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-9-2]</td>
         <td class="col-duration">0</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004753908>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -4878,10 +5634,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[0-9-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004753A58>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -4901,10 +5656,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-9-0]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000478A400>, wheel_num = 0
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -4924,10 +5678,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-9-1]</td>
         <td class="col-duration">0.003</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004655940>, wheel_num = 1
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -4947,10 +5700,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-9-2]</td>
         <td class="col-duration">0.001</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x000000000479A240>, wheel_num = 2
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -4970,10 +5722,9 @@ tests\test_main.py:19: AssertionError</div>
         <td class="col-result">failed</td>
         <td class="col-name">tests/test_main.py::test_fiesta_wheel_diameter_gt_12[1-9-3]</td>
         <td class="col-duration">0.002</td>
-        <td class="col-links"></td>
     </tr>
     <tr>
-        <td class="extra" colspan="4">
+        <td class="extra" colspan="3">
             <div class="log">fiesta = <racetest.ford.Fiesta object at 0x0000000004779518>, wheel_num = 3
 
     @pytest.mark.parametrize('wheel_num', [0,1,2,3])
@@ -4990,6 +5741,6 @@ tests\test_main.py:19: AssertionError</div>
 
 </table>
 
-</body>
 
+</body>
 </html>

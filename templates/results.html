@@ -3,18 +3,67 @@
 <h1>Results</h1>
 
 {% for race in races -%}
-<h2>Race {{ race.name }}</h2>
+<h2 id="heading-{{ race.name }}">Race {{ race.name }}</h2>
+<p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>{{ race.n_total }} tests ran. </p>
 
+{{ checkbox('passed',  race.n_model_sets_pass) }}
+{{ checkbox('failed',  race.n_model_sets_fail) }}
+
+<table class="results-table summary-table">
+    <tr>
+        <th>Model</th>
+        <th>Pass %</th>
+        <th>Total Passed Tests</th>
+        <th>Total Skipped Tests</th>
+        <th>Total Failed Tests</th>
+        <th>Total Errors</th>
+        <th>Total xPassed Tests</th>
+        <th>Total xFailed Tests</th>
+    </tr>
+
+    {% for model_set in race.model_sets -%}
+    <tr class="results-table-row">
+        <td onclick="scroll_to(this)" class="scroller" id="{{ race.name }}-{{ model_set.name }}">{{ model_set.name }}</td>
+        <td class="summary-result rel_pass">{{ model_set.rel_pass }}</td>
+        <td class="summary-result">{{ model_set.n_passed }}</td>
+        <td class="summary-result">{{ model_set.n_skipped }}</td>
+        <td class="summary-result">{{ model_set.n_failed }}</td>
+        <td class="summary-result">{{ model_set.n_errors }}</td>
+        <td class="summary-result">{{ model_set.n_xpass }}</td>
+        <td class="summary-result">{{ model_set.n_xfail }}</td>
+
+    </tr>
+    {%- endfor %}
+
+    <tr style="font-weight:bold">
+        <td>Totals</td>
+        <td class="rel_pass">{{ race.rel_total_pass }}</td>
+        <td>{{ race.n_total_passed }}</td>
+        <td>{{ race.n_total_skipped }}</td>
+        <td>{{ race.n_total_failed }}</td>
+        <td>{{ race.n_total_errors }}</td>
+        <td>{{ race.n_total_xpass }}</td>
+        <td>{{ race.n_total_xfail }}</td>
+    </tr>
+
+</table>
+
 {% for model_set in race.model_sets -%}
-<h2>Tests for {{ model_set.name }}</h2>
+<h2 id="heading-{{ race.name }}-{{ model_set.name }}">Tests for {{ model_set.name }}</h2>
+<p>
+    <a href="javascript:scroll_to_parent({{ race.name }})">Scroll to parent</a>
+     / 
+    <a href="javascript:scroll_to_top()">Scroll to top</a>
+</p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
 <h2>Results</h2>
-{% macro checkbox(type, n) -%}
+
+{% macro checkbox(type, n, name) -%}
 <input 
     checked="true" 
     class="filter" 
-    data-prefix-id="_default-" 
+    data-suffix-id="{{ race.name }}-{{ name }}" 
     data-test-result="{{ type }}" 
     hidden="true" 
     name="filter_checkbox" 
@@ -23,23 +72,22 @@
 />
 <span class="{{ type }}">{{ n }} {{ type }}</span>
 {%- endmacro %}
-{{ checkbox('passed',  model_set.n_passed) }},
-{{ checkbox('skipped', model_set.n_skipped) }},
-{{ checkbox('failed',  model_set.n_failed) }},
-{{ checkbox('error',   model_set.n_errors) }},
-{{ checkbox('xfailed', model_set.n_xfail) }},
-{{ checkbox('xpassed', model_set.n_xpass) }}
+{{ checkbox('passed',  model_set.n_passed, model_set.name) }}
+{{ checkbox('skipped', model_set.n_skipped, model_set.name) }}
+{{ checkbox('failed',  model_set.n_failed, model_set.name) }}
+{{ checkbox('error',   model_set.n_errors, model_set.name) }}
+{{ checkbox('xpassed', model_set.n_xpass, model_set.name) }}
+{{ checkbox('xfailed', model_set.n_xfail, model_set.name) }}
 
-<table class="results-table" id="_default-results-table">
+<table class="results-table {{ model_set.name }}-{{ race.name }}" id="results-table-{{ race.name }}">
     <thead id="_default-results-table-head">
         <tr>
             <th class="sortable result initial-sort" col="result">Result</th>
             <th class="sortable" col="name">Test</th>
             <th class="sortable numeric" col="duration">Duration</th>
-            <th>Links</th>
         </tr>
-        <tr hidden="true" id="_default-not-found-message">
-            <th colspan="4">No results found. Try to check the filters</th>
+        <tr hidden="true" id="not-found-message{{ race.name }}">
+            <th colspan="3">No results found. Try to check the filters</th>
         </tr>
     </thead>
     {% for test in model_set.tests -%}

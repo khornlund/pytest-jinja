@@ -24,6 +24,14 @@ function find_all(selector, elem) {
     return toArray(elem.querySelectorAll(selector));
 }
 
+function find_next(selector, elem) {
+    while (elem && elem.nodeName != selector) {
+        elem = elem.nextElementSibling;
+    }
+
+    return elem;
+}
+
 function sort_column(elem) {
     toggle_sort_states(elem);
     var colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
@@ -38,12 +46,12 @@ function sort_column(elem) {
     sort_table(elem, key(colIndex));
 }
 
-function show_all_extras(table_id) {
-    find_all('.col-result', find('#' + table_id)).forEach(show_extras);
+function show_all_extras() {
+    find_all('.col-result').forEach(show_extras);
 }
 
-function hide_all_extras(table_id) {
-    find_all('.col-result', find('#' + table_id)).forEach(hide_extras);
+function hide_all_extras() {
+    find_all('.col-result').forEach(hide_extras);
 }
 
 function show_extras(colresult_elem) {
@@ -70,10 +78,10 @@ function show_filters() {
 
 function add_collapse() {
     // Add links for show/hide all
-    find_all('table.results-table').forEach(function(resulttable) {
+    find_all('table.results-table:not(.summary-table)').forEach(function(resulttable) {
         var showhideall = document.createElement("p");
-        showhideall.innerHTML = '<a href="javascript:show_all_extras(\'' + resulttable.id + '\')">Show all details</a> / ' +
-            '<a href="javascript:hide_all_extras(\'' + resulttable.id + '\')">Hide all details</a>';
+        showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
+            '<a href="javascript:hide_all_extras()">Hide all details</a>';
         resulttable.parentElement.insertBefore(showhideall, resulttable);
     });
 
@@ -105,7 +113,7 @@ function get_query_parameter(name) {
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-function init () {
+function init() {
     reset_sort_headers();
 
     add_collapse();
@@ -121,6 +129,7 @@ function init () {
                               }, false)
     });
 
+    set_rel_class();
 };
 
 function sort_table(clicked, key_func) {
@@ -135,6 +144,7 @@ function sort_table(clicked, key_func) {
     var thead = find('thead', table);
     table.remove();
     var parent = document.createElement("table");
+    parent.classList.add("results-table");
     parent.id = table.id;
     parent.appendChild(thead);
     sorted_rows.forEach(function(elem) {
@@ -175,8 +185,8 @@ function key_num(col_index) {
 
 function key_result(col_index) {
     return function(elem) {
-        var strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
-                       'Skipped', 'Passed'];
+        var strings = ['error', 'failed', 'rerun', 'xfailed', 'xpassed',
+                       'skipped', 'passed'];
         return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
     };
 }
@@ -218,16 +228,98 @@ function filter_table(elem) {
     var outcome_att = "data-test-result";
     var outcome = elem.getAttribute(outcome_att);
     var class_outcome = outcome + " results-table-row";
-    var prefix_id = elem.getAttribute("data-prefix-id");
-    var table = find("#" + prefix_id + "results-table");
-    var outcome_rows = table.getElementsByClassName(class_outcome);
+    var suffix_id = elem.getAttribute("data-suffix-id");
+    var table = find_next("TABLE", elem);
+
+    var outcome_rows = Array.from(table.getElementsByClassName(class_outcome));
 
     for(var i = 0; i < outcome_rows.length; i++){
         outcome_rows[i].hidden = !elem.checked;
     }
 
-    var rows = find_all('.results-table-row', table).filter(is_all_rows_hidden);
+
+    var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
     var all_rows_hidden = rows.length == 0 ? true : false;
-    var not_found_message = document.getElementById(prefix_id + "not-found-message");
-    not_found_message.hidden = !all_rows_hidden;
+    var not_found_message = document.getElementById("not-found-message" + suffix_id);
+    if (not_found_message) {
+        not_found_message.hidden = !all_rows_hidden;
+    }
+}
+
+function update_check_boxes(checked_status, outcome) {
+    var data_att = "[data-test-result='" + outcome + "']";
+    var check_boxes = document.querySelectorAll(data_att);
+
+    check_boxes.forEach(function(element) { 
+        element.checked = checked_status;
+    });
+}
+
+
+function scroll_to_race(elem) {
+    var test_name = elem.innerHTML;
+    var table_id = "results-table-" + test_name;
+    var table = document.getElementById(table_id);
+    var scroll_distance = table.getBoundingClientRect().y;
+
+    window.scrollBy({
+        left: 0, 
+        top: scroll_distance - 300, 
+        behavior: "smooth"
+    });
+}
+
+function scroll_to(elem) {
+    var id = elem.id;
+    var heading_id = "#heading-" + id;
+    var heading = document.querySelector(heading_id);
+    var scroll_distance = heading.getBoundingClientRect().y;
+
+    window.scrollBy({
+        left: 0, 
+        top: scroll_distance, 
+        behavior: "smooth"
+    });
+}
+
+function scroll_to_top() {
+    window.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+function scroll_to_parent(name) {
+    var heading_id = "#heading-" + name;
+    var heading = document.querySelector(heading_id);
+    scroll_distance = heading.getBoundingClientRect().y;
+
+    window.scrollBy({
+        left: 0,
+        top: scroll_distance,
+        behavior: "smooth"
+    });
+}
+
+function set_rel_class() {
+    var rel_pass_elements = document.querySelectorAll(".rel_pass");
+
+    rel_pass_elements.forEach(function(elem) {
+        var rel_pass = parseFloat(elem.innerHTML);
+
+        if (rel_pass == 1) {
+            elem.classList.add("passed");
+            elem.parentElement.classList.add("passed");
+        } else if (rel_pass < 0.85) {
+            elem.classList.add("failed");
+            elem.parentElement.classList.add("failed");
+        } else {
+            elem.classList.add("close-to-pass");
+            elem.classList.add("failed");
+            elem.parentElement.classList.add("failed");
+        }
+
+        elem.classList.remove("rel_pass");
+    });
 }

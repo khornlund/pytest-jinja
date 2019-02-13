@@ -22,10 +22,64 @@
             <td>{{ python_version }}</td>
         </tr>
     </table>
+
     <h2>Summary</h2>
     <p>{{ n_total }} tests ran in {{ duration }} seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
-    {% block results %}{% endblock %}
-</body>
 
+
+    {% macro checkbox(type, n, name) -%}
+    <input 
+        checked="true" 
+        class="filter" 
+        data-suffix-id="{{ name }}" 
+        data-test-result="{{ type }}" 
+        hidden="true" 
+        name="filter_checkbox" 
+        onChange="filter_table(this)" 
+        type="checkbox" 
+    />
+    <span class="{{ type }}">{{ n }} {{ type }}</span>
+    {%- endmacro %}
+    {{ checkbox('passed', n_races_passed, report_name) }}
+    {{ checkbox('failed', n_races_failed, report_name) }}
+
+    <table class="results-table summary-table">
+        <tr>
+            <th>Race</th>
+            <th>Pass %</th>
+            <th>Total Passed Tests</th>
+            <th>Total Skipped Tests</th>
+            <th>Total Failed Tests</th>
+            <th>Total Errors</th>
+            <th>Total xPassed Tests</th>
+            <th>Total xFailed Tests</th>
+        </tr>
+
+        {% for race in races -%}
+        <tr class="results-table-row">
+            <td onclick="scroll_to(this)" class="scroller" id="{{ race.name }}">{{ race.name }}</td>
+            <td class="summary-result rel_pass">{{ race.rel_total_pass }}</td>
+            <td class="summary-result">{{ race.n_total_passed }}</td>
+            <td class="summary-result">{{ race.n_total_skipped }}</td>
+            <td class="summary-result">{{ race.n_total_failed }}</td>
+            <td class="summary-result">{{ race.n_total_errors }}</td>
+            <td class="summary-result">{{ race.n_total_xpass }}</td>
+            <td class="summary-result">{{ race.n_total_xfail }}</td>
+        </tr>
+        {%- endfor %}
+
+        <tr style="font-weight:bold">
+            <td>Totals</td>
+            <td class="rel_pass">{{ rel_total_pass }}</td>
+            <td>{{ n_passed }}</td>
+            <td>{{ n_skipped }}</td>
+            <td>{{ n_failed }}</td>
+            <td>{{ n_errors }}</td>
+            <td>{{ n_xpass }}</td>
+            <td>{{ n_xfail }}</td>
+        </tr>
+    </table>
+    {% block results %}{% endblock %}
+
+</body>
 </html>
