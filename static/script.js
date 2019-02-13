@@ -308,12 +308,9 @@ function set_rel_class() {
     rel_pass_elements.forEach(function(elem) {
         var rel_pass = parseFloat(elem.innerHTML);
 
-        if (rel_pass == 1) {
+        if (rel_pass == 100) {
             elem.classList.add("passed");
             elem.parentElement.classList.add("passed");
-        } else if (rel_pass < 0.85) {
-            elem.classList.add("failed");
-            elem.parentElement.classList.add("failed");
         } else {
             elem.classList.add("close-to-pass");
             elem.classList.add("failed");
