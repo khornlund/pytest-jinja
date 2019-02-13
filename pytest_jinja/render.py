@@ -30,6 +30,8 @@ def read_json(json_f):
     sort_by_race = sort_tests(tests, 'random_seed')
     races = [create_race(key, val) for key, val in sort_by_race.items()]
     context['races'] = races
+    context['n_races_passed'] = sum([1 for race in races if race['n_total_passed'] == race['n_total']])
+    context['n_races_failed'] = sum([1 for race in races if race['n_total_passed'] != race['n_total']])
     return context
 
 
@@ -41,6 +43,8 @@ def create_race(name, tests):
         'model_sets'       : model_sets,
         'n_model_sets'     : len(model_sets),
         'n_total'          : len(tests),
+        'n_model_sets_pass': sum([1 for model_set in model_sets if model_set['n_passed'] == len(model_set['tests'])]),
+        'n_model_sets_fail': sum([1 for model_set in model_sets if model_set['n_passed'] != len(model_set['tests'])]),
         'n_total_passed'   : sum([model_set['n_passed']  for model_set in model_sets]),
         'n_total_failed'   : sum([model_set['n_failed']  for model_set in model_sets]),
         'n_total_skipped'  : sum([model_set['n_skipped'] for model_set in model_sets]),

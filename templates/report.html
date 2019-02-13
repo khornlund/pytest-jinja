@@ -40,8 +40,8 @@
     />
     <span class="{{ type }}">{{ n }} {{ type }}</span>
     {%- endmacro %}
-    {{ checkbox('passed', n_passed, report_name) }}
-    {{ checkbox('failed', n_failed, report_name) }}
+    {{ checkbox('passed', n_races_passed, report_name) }}
+    {{ checkbox('failed', n_races_failed, report_name) }}
 
     <table class="results-table summary-table">
         <tr>

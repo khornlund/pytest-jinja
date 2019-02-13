@@ -7,8 +7,9 @@
 <p><a href="javascript:scroll_to_top()">Scroll to top</a></p>
 <p>{{ race.n_total }} tests ran. </p>
 
-{{ checkbox('passed',  race.n_total_passed) }},
-{{ checkbox('failed',  race.n_total_failed) }},
+{{ checkbox('passed',  race.n_model_sets_pass) }}
+{{ checkbox('failed',  race.n_model_sets_fail) }}
+
 <table class="results-table summary-table">
     <tr>
         <th>Model</th>

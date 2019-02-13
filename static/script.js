@@ -24,6 +24,14 @@ function find_all(selector, elem) {
     return toArray(elem.querySelectorAll(selector));
 }
 
+function find_next(selector, elem) {
+    while (elem && elem.nodeName != selector) {
+        elem = elem.nextElementSibling;
+    }
+
+    return elem;
+}
+
 function sort_column(elem) {
     toggle_sort_states(elem);
     var colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
@@ -216,14 +224,6 @@ function is_all_rows_hidden(value) {
   return value.hidden == false;
 }
 
-function find_next(selector, elem) {
-    while (elem && elem.nodeName != selector) {
-        elem = elem.nextElementSibling;
-    }
-
-    return elem;
-}
-
 function filter_table(elem) {
     var outcome_att = "data-test-result";
     var outcome = elem.getAttribute(outcome_att);
@@ -311,7 +311,7 @@ function set_rel_class() {
         if (rel_pass == 1) {
             elem.classList.add("passed");
             elem.parentElement.classList.add("passed");
-        } else if (rel_pass < 0.95) {
+        } else if (rel_pass < 0.85) {
             elem.classList.add("failed");
             elem.parentElement.classList.add("failed");
         } else {
