@@ -66,6 +66,7 @@
             </table>
             {# Now recursively handle all the children #}
             {{ loop(child.children) }}
+            
         {% else %}
             {# This is a collection of tests, so create a normal test result table #}
             {% macro checkbox(type, n, name) -%}
