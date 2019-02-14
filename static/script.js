@@ -223,7 +223,7 @@ function toggle_sort_states(elem) {
 }
 
 function is_all_rows_hidden(value) {
-  return value.hidden == false;
+    return value.hidden == false;
 }
 
 function filter_table(elem) {
@@ -254,20 +254,6 @@ function update_check_boxes(checked_status, outcome) {
 
     check_boxes.forEach(function(element) { 
         element.checked = checked_status;
-    });
-}
-
-
-function scroll_to_race(elem) {
-    var test_name = elem.innerHTML;
-    var table_id = "results-table-" + test_name;
-    var table = document.getElementById(table_id);
-    var scroll_distance = table.getBoundingClientRect().y;
-
-    window.scrollBy({
-        left: 0, 
-        top: scroll_distance - 300, 
-        behavior: "smooth"
     });
 }
 

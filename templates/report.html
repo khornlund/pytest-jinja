@@ -25,9 +25,10 @@
 
     <h1>Results</h1>
     <p>{{ n_tests }} tests ran in {{ duration }} seconds. </p>
-
+    
     {% for child in children recursive %}
-        <h2 id="heading-{{ child.prefix }}-{{ child.name }}{{ child.children[0].random_seed }}">{{ child.prefix }} {{ child.name }}</h2>
+        <h2 id="heading-{{ child.id }}{{ child.children[0].random_seed }}">{{ child.prefix }} {{ child.short_name }}</h2>
+        <p><a href="javascript:scroll_to_top()">Scroll to top</a> / <a href="javascript:scroll_to_parent('{{ child.parent_id }}')">Scroll to parent</a></p>
         {% if not child.is_leaf %}
             {# Create a summary table for the collection of collections #}
             <table class="results-table summary-table">
@@ -43,7 +44,7 @@
                 </tr>
                 {% for inner_child in child.children -%}
                     <tr class="results-table-row">
-                        <td onclick="scroll_to(this)" class="scroller" id="{{ inner_child.prefix }}-{{ inner_child.name }}{{ inner_child.children[0].random_seed }}">{{ inner_child.name }}</td>
+                        <td onclick="scroll_to(this)" class="scroller" id="{{ inner_child.id }}{{ inner_child.children[0].random_seed }}">{{ inner_child.short_name }}</td>
                         <td class="summary-result rel_pass">{{ inner_child.p_passed }}</td>
                         <td class="summary-result">{{ inner_child.n_passed }}</td>
                         <td class="summary-result">{{ inner_child.n_skipped }}</td>

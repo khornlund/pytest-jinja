@@ -7,7 +7,10 @@
     "n_tests": 200,
     "children": [
         {
-            "name": "Results",
+            "prefix": "Results",
+            "short_name": "Summary",
+            "id": "Results-Summary",
+            "parent_id": "",
             "n_passed": 150,
             "n_failed": 50,
             "n_skipped": 0,
@@ -18,10 +21,12 @@
             "p_passed": 75.0,
             "is_leaf": 0,
             "child_type": "random_seed",
-            "prefix": "",
             "children": [
                 {
-                    "name": 0,
+                    "prefix": "random_seed",
+                    "short_name": 0,
+                    "id": "random_seed-0",
+                    "parent_id": "Results-Summary",
                     "n_passed": 16,
                     "n_failed": 4,
                     "n_skipped": 0,
@@ -32,10 +37,12 @@
                     "p_passed": 80.0,
                     "is_leaf": 0,
                     "child_type": "model",
-                    "prefix": "random_seed",
                     "children": [
                         {
-                            "name": "mustang",
+                            "prefix": "model",
+                            "short_name": "mustang",
+                            "id": "model-mustang",
+                            "parent_id": "random_seed-0",
                             "n_passed": 10,
                             "n_failed": 0,
                             "n_skipped": 0,
@@ -46,7 +53,6 @@
                             "p_passed": 100.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_mustang_engine_cylinders[0-0]",
@@ -131,7 +137,10 @@
                             ]
                         },
                         {
-                            "name": "fiesta",
+                            "prefix": "model",
+                            "short_name": "fiesta",
+                            "id": "model-fiesta",
+                            "parent_id": "random_seed-0",
                             "n_passed": 6,
                             "n_failed": 4,
                             "n_skipped": 0,
@@ -142,7 +151,6 @@
                             "p_passed": 60.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_fiesta_engine_cylinders[0-0]",
@@ -229,7 +237,10 @@
                     ]
                 },
                 {
-                    "name": 1,
+                    "prefix": "random_seed",
+                    "short_name": 1,
+                    "id": "random_seed-1",
+                    "parent_id": "Results-Summary",
                     "n_passed": 12,
                     "n_failed": 8,
                     "n_skipped": 0,
@@ -240,10 +251,12 @@
                     "p_passed": 60.0,
                     "is_leaf": 0,
                     "child_type": "model",
-                    "prefix": "random_seed",
                     "children": [
                         {
-                            "name": "mustang",
+                            "prefix": "model",
+                            "short_name": "mustang",
+                            "id": "model-mustang",
+                            "parent_id": "random_seed-1",
                             "n_passed": 10,
                             "n_failed": 0,
                             "n_skipped": 0,
@@ -254,7 +267,6 @@
                             "p_passed": 100.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_mustang_engine_cylinders[0-1]",
@@ -339,7 +351,10 @@
                             ]
                         },
                         {
-                            "name": "fiesta",
+                            "prefix": "model",
+                            "short_name": "fiesta",
+                            "id": "model-fiesta",
+                            "parent_id": "random_seed-1",
                             "n_passed": 2,
                             "n_failed": 8,
                             "n_skipped": 0,
@@ -350,7 +365,6 @@
                             "p_passed": 20.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_fiesta_engine_cylinders[0-1]",
@@ -437,7 +451,10 @@
                     ]
                 },
                 {
-                    "name": 2,
+                    "prefix": "random_seed",
+                    "short_name": 2,
+                    "id": "random_seed-2",
+                    "parent_id": "Results-Summary",
                     "n_passed": 14,
                     "n_failed": 6,
                     "n_skipped": 0,
@@ -448,10 +465,12 @@
                     "p_passed": 70.0,
                     "is_leaf": 0,
                     "child_type": "model",
-                    "prefix": "random_seed",
                     "children": [
                         {
-                            "name": "mustang",
+                            "prefix": "model",
+                            "short_name": "mustang",
+                            "id": "model-mustang",
+                            "parent_id": "random_seed-2",
                             "n_passed": 10,
                             "n_failed": 0,
                             "n_skipped": 0,
@@ -462,7 +481,6 @@
                             "p_passed": 100.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_mustang_engine_cylinders[0-2]",
@@ -547,7 +565,10 @@
                             ]
                         },
                         {
-                            "name": "fiesta",
+                            "prefix": "model",
+                            "short_name": "fiesta",
+                            "id": "model-fiesta",
+                            "parent_id": "random_seed-2",
                             "n_passed": 4,
                             "n_failed": 6,
                             "n_skipped": 0,
@@ -558,7 +579,6 @@
                             "p_passed": 40.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_fiesta_engine_cylinders[0-2]",
@@ -645,7 +665,10 @@
                     ]
                 },
                 {
-                    "name": 3,
+                    "prefix": "random_seed",
+                    "short_name": 3,
+                    "id": "random_seed-3",
+                    "parent_id": "Results-Summary",
                     "n_passed": 14,
                     "n_failed": 6,
                     "n_skipped": 0,
@@ -656,10 +679,12 @@
                     "p_passed": 70.0,
                     "is_leaf": 0,
                     "child_type": "model",
-                    "prefix": "random_seed",
                     "children": [
                         {
-                            "name": "mustang",
+                            "prefix": "model",
+                            "short_name": "mustang",
+                            "id": "model-mustang",
+                            "parent_id": "random_seed-3",
                             "n_passed": 10,
                             "n_failed": 0,
                             "n_skipped": 0,
@@ -670,7 +695,6 @@
                             "p_passed": 100.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_mustang_engine_cylinders[0-3]",
@@ -755,7 +779,10 @@
                             ]
                         },
                         {
-                            "name": "fiesta",
+                            "prefix": "model",
+                            "short_name": "fiesta",
+                            "id": "model-fiesta",
+                            "parent_id": "random_seed-3",
                             "n_passed": 4,
                             "n_failed": 6,
                             "n_skipped": 0,
@@ -766,7 +793,6 @@
                             "p_passed": 40.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_fiesta_engine_cylinders[0-3]",
@@ -853,7 +879,10 @@
                     ]
                 },
                 {
-                    "name": 4,
+                    "prefix": "random_seed",
+                    "short_name": 4,
+                    "id": "random_seed-4",
+                    "parent_id": "Results-Summary",
                     "n_passed": 18,
                     "n_failed": 2,
                     "n_skipped": 0,
@@ -864,10 +893,12 @@
                     "p_passed": 90.0,
                     "is_leaf": 0,
                     "child_type": "model",
-                    "prefix": "random_seed",
                     "children": [
                         {
-                            "name": "mustang",
+                            "prefix": "model",
+                            "short_name": "mustang",
+                            "id": "model-mustang",
+                            "parent_id": "random_seed-4",
                             "n_passed": 10,
                             "n_failed": 0,
                             "n_skipped": 0,
@@ -878,7 +909,6 @@
                             "p_passed": 100.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_mustang_engine_cylinders[0-4]",
@@ -963,7 +993,10 @@
                             ]
                         },
                         {
-                            "name": "fiesta",
+                            "prefix": "model",
+                            "short_name": "fiesta",
+                            "id": "model-fiesta",
+                            "parent_id": "random_seed-4",
                             "n_passed": 8,
                             "n_failed": 2,
                             "n_skipped": 0,
@@ -974,7 +1007,6 @@
                             "p_passed": 80.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_fiesta_engine_cylinders[0-4]",
@@ -1061,7 +1093,10 @@
                     ]
                 },
                 {
-                    "name": 5,
+                    "prefix": "random_seed",
+                    "short_name": 5,
+                    "id": "random_seed-5",
+                    "parent_id": "Results-Summary",
                     "n_passed": 14,
                     "n_failed": 6,
                     "n_skipped": 0,
@@ -1072,10 +1107,12 @@
                     "p_passed": 70.0,
                     "is_leaf": 0,
                     "child_type": "model",
-                    "prefix": "random_seed",
                     "children": [
                         {
-                            "name": "mustang",
+                            "prefix": "model",
+                            "short_name": "mustang",
+                            "id": "model-mustang",
+                            "parent_id": "random_seed-5",
                             "n_passed": 10,
                             "n_failed": 0,
                             "n_skipped": 0,
@@ -1086,7 +1123,6 @@
                             "p_passed": 100.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_mustang_engine_cylinders[0-5]",
@@ -1171,7 +1207,10 @@
                             ]
                         },
                         {
-                            "name": "fiesta",
+                            "prefix": "model",
+                            "short_name": "fiesta",
+                            "id": "model-fiesta",
+                            "parent_id": "random_seed-5",
                             "n_passed": 4,
                             "n_failed": 6,
                             "n_skipped": 0,
@@ -1182,7 +1221,6 @@
                             "p_passed": 40.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_fiesta_engine_cylinders[0-5]",
@@ -1269,7 +1307,10 @@
                     ]
                 },
                 {
-                    "name": 6,
+                    "prefix": "random_seed",
+                    "short_name": 6,
+                    "id": "random_seed-6",
+                    "parent_id": "Results-Summary",
                     "n_passed": 16,
                     "n_failed": 4,
                     "n_skipped": 0,
@@ -1280,10 +1321,12 @@
                     "p_passed": 80.0,
                     "is_leaf": 0,
                     "child_type": "model",
-                    "prefix": "random_seed",
                     "children": [
                         {
-                            "name": "mustang",
+                            "prefix": "model",
+                            "short_name": "mustang",
+                            "id": "model-mustang",
+                            "parent_id": "random_seed-6",
                             "n_passed": 10,
                             "n_failed": 0,
                             "n_skipped": 0,
@@ -1294,7 +1337,6 @@
                             "p_passed": 100.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_mustang_engine_cylinders[0-6]",
@@ -1379,7 +1421,10 @@
                             ]
                         },
                         {
-                            "name": "fiesta",
+                            "prefix": "model",
+                            "short_name": "fiesta",
+                            "id": "model-fiesta",
+                            "parent_id": "random_seed-6",
                             "n_passed": 6,
                             "n_failed": 4,
                             "n_skipped": 0,
@@ -1390,7 +1435,6 @@
                             "p_passed": 60.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_fiesta_engine_cylinders[0-6]",
@@ -1477,7 +1521,10 @@
                     ]
                 },
                 {
-                    "name": 7,
+                    "prefix": "random_seed",
+                    "short_name": 7,
+                    "id": "random_seed-7",
+                    "parent_id": "Results-Summary",
                     "n_passed": 16,
                     "n_failed": 4,
                     "n_skipped": 0,
@@ -1488,10 +1535,12 @@
                     "p_passed": 80.0,
                     "is_leaf": 0,
                     "child_type": "model",
-                    "prefix": "random_seed",
                     "children": [
                         {
-                            "name": "mustang",
+                            "prefix": "model",
+                            "short_name": "mustang",
+                            "id": "model-mustang",
+                            "parent_id": "random_seed-7",
                             "n_passed": 10,
                             "n_failed": 0,
                             "n_skipped": 0,
@@ -1502,7 +1551,6 @@
                             "p_passed": 100.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_mustang_engine_cylinders[0-7]",
@@ -1587,7 +1635,10 @@
                             ]
                         },
                         {
-                            "name": "fiesta",
+                            "prefix": "model",
+                            "short_name": "fiesta",
+                            "id": "model-fiesta",
+                            "parent_id": "random_seed-7",
                             "n_passed": 6,
                             "n_failed": 4,
                             "n_skipped": 0,
@@ -1598,7 +1649,6 @@
                             "p_passed": 60.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_fiesta_engine_cylinders[0-7]",
@@ -1685,7 +1735,10 @@
                     ]
                 },
                 {
-                    "name": 8,
+                    "prefix": "random_seed",
+                    "short_name": 8,
+                    "id": "random_seed-8",
+                    "parent_id": "Results-Summary",
                     "n_passed": 18,
                     "n_failed": 2,
                     "n_skipped": 0,
@@ -1696,10 +1749,12 @@
                     "p_passed": 90.0,
                     "is_leaf": 0,
                     "child_type": "model",
-                    "prefix": "random_seed",
                     "children": [
                         {
-                            "name": "mustang",
+                            "prefix": "model",
+                            "short_name": "mustang",
+                            "id": "model-mustang",
+                            "parent_id": "random_seed-8",
                             "n_passed": 10,
                             "n_failed": 0,
                             "n_skipped": 0,
@@ -1710,7 +1765,6 @@
                             "p_passed": 100.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_mustang_engine_cylinders[0-8]",
@@ -1795,7 +1849,10 @@
                             ]
                         },
                         {
-                            "name": "fiesta",
+                            "prefix": "model",
+                            "short_name": "fiesta",
+                            "id": "model-fiesta",
+                            "parent_id": "random_seed-8",
                             "n_passed": 8,
                             "n_failed": 2,
                             "n_skipped": 0,
@@ -1806,7 +1863,6 @@
                             "p_passed": 80.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_fiesta_engine_cylinders[0-8]",
@@ -1893,7 +1949,10 @@
                     ]
                 },
                 {
-                    "name": 9,
+                    "prefix": "random_seed",
+                    "short_name": 9,
+                    "id": "random_seed-9",
+                    "parent_id": "Results-Summary",
                     "n_passed": 12,
                     "n_failed": 8,
                     "n_skipped": 0,
@@ -1904,10 +1963,12 @@
                     "p_passed": 60.0,
                     "is_leaf": 0,
                     "child_type": "model",
-                    "prefix": "random_seed",
                     "children": [
                         {
-                            "name": "mustang",
+                            "prefix": "model",
+                            "short_name": "mustang",
+                            "id": "model-mustang",
+                            "parent_id": "random_seed-9",
                             "n_passed": 10,
                             "n_failed": 0,
                             "n_skipped": 0,
@@ -1918,7 +1979,6 @@
                             "p_passed": 100.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_mustang_engine_cylinders[0-9]",
@@ -2003,7 +2063,10 @@
                             ]
                         },
                         {
-                            "name": "fiesta",
+                            "prefix": "model",
+                            "short_name": "fiesta",
+                            "id": "model-fiesta",
+                            "parent_id": "random_seed-9",
                             "n_passed": 2,
                             "n_failed": 8,
                             "n_skipped": 0,
@@ -2014,7 +2077,6 @@
                             "p_passed": 20.0,
                             "is_leaf": 1,
                             "child_type": "tests",
-                            "prefix": "model",
                             "children": [
                                 {
                                     "nodeid": "tests/test_main.py::test_fiesta_engine_cylinders[0-9]",
