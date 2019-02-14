@@ -153,7 +153,10 @@ function sort_table(clicked, key_func) {
     sorted_rows.forEach(function(elem) {
         parent.appendChild(elem);
     });
-    parent.append(totals);
+    if (totals) {
+        parent.append(totals);
+        parent.classList.add("summary-table");
+    }
     previous_sibling.parentNode.insertBefore(parent, previous_sibling.nextSibling);
 }
 
@@ -250,15 +253,6 @@ function filter_table(elem) {
     }
 }
 
-function update_check_boxes(checked_status, outcome) {
-    var data_att = "[data-test-result='" + outcome + "']";
-    var check_boxes = document.querySelectorAll(data_att);
-
-    check_boxes.forEach(function(element) { 
-        element.checked = checked_status;
-    });
-}
-
 function scroll_to(elem) {
     var id = elem.id;
     var heading_id = "#heading-" + id;
@@ -285,7 +279,7 @@ function scroll_to_parent(name) {
         scroll_to_top();
         return;
     }
-    
+
     var heading_id = "#heading-" + name;
     var heading = document.querySelector(heading_id);
     scroll_distance = heading.getBoundingClientRect().y;
