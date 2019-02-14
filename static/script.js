@@ -46,12 +46,12 @@ function sort_column(elem) {
     sort_table(elem, key(colIndex));
 }
 
-function show_all_extras() {
-    find_all('.col-result').forEach(show_extras);
+function show_all_extras(elem) {
+    find_all('.col-result', find_next("TABLE", elem)).forEach(show_extras);
 }
 
-function hide_all_extras() {
-    find_all('.col-result').forEach(hide_extras);
+function hide_all_extras(elem) {
+    find_all('.col-result', find_next("TABLE", elem)).forEach(hide_extras);
 }
 
 function show_extras(colresult_elem) {
@@ -80,8 +80,8 @@ function add_collapse() {
     // Add links for show/hide all
     find_all('table.results-table:not(.summary-table)').forEach(function(resulttable) {
         var showhideall = document.createElement("p");
-        showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
-            '<a href="javascript:hide_all_extras()">Hide all details</a>';
+        showhideall.innerHTML = '<a style="text-decoration:underline;cursor:pointer;" onclick="show_all_extras(this.parentElement)">Show all details</a> / ' +
+            '<a style="text-decoration:underline;cursor:pointer;" onclick="hide_all_extras(this.parentElement)">Hide all details</a>';
         resulttable.parentElement.insertBefore(showhideall, resulttable);
     });
 
@@ -130,6 +130,8 @@ function init() {
     });
 
     set_rel_class();
+
+    hide_all_extras();
 };
 
 function sort_table(clicked, key_func) {
