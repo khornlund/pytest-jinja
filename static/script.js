@@ -281,6 +281,11 @@ function scroll_to_top() {
 }
 
 function scroll_to_parent(name) {
+    if (!name) {
+        scroll_to_top();
+        return;
+    }
+    
     var heading_id = "#heading-" + name;
     var heading = document.querySelector(heading_id);
     scroll_distance = heading.getBoundingClientRect().y;
