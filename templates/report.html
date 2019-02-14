@@ -32,18 +32,21 @@
         {% if not child.is_leaf %}
             {# Create a summary table for the collection of collections #}
             <table class="results-table summary-table">
-                <tr>
-                    <th>{{ child.child_type }}</th>
-                    <th>Pass %</th>
-                    <th>Total Passed Tests</th>
-                    <th>Total Skipped Tests</th>
-                    <th>Total Failed Tests</th>
-                    <th>Total Errors</th>
-                    <th>Total xPassed Tests</th>
-                    <th>Total xFailed Tests</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th class="sortable numeric">{{ child.child_type }}</th>
+                        <th class="sortable numeric">Pass %</th>
+                        <th class="sortable numeric">Total Passed Tests</th>
+                        <th class="sortable numeric">Total Skipped Tests</th>
+                        <th class="sortable numeric">Total Failed Tests</th>
+                        <th class="sortable numeric">Total Errors</th>
+                        <th class="sortable numeric">Total xPassed Tests</th>
+                        <th class="sortable numeric">Total xFailed Tests</th>
+                    </tr>
+                </thead>
                 {% for inner_child in child.children -%}
-                    <tr class="results-table-row">
+                <tbody class="results-table-row">
+                    <tr>
                         <td onclick="scroll_to(this)" class="scroller" id="{{ inner_child.id }}{{ inner_child.children[0].random_seed }}">{{ inner_child.short_name }}</td>
                         <td class="summary-result rel_pass">{{ inner_child.p_passed }}</td>
                         <td class="summary-result">{{ inner_child.n_passed }}</td>
@@ -53,17 +56,20 @@
                         <td class="summary-result">{{ inner_child.n_xpass }}</td>
                         <td class="summary-result">{{ inner_child.n_xfail }}</td>
                     </tr>
+                </tbody>
                 {%- endfor %}
-                <tr style="font-weight:bold">
-                    <td>Totals</td>
-                    <td class="rel_pass">{{ child.p_passed }}</td>
-                    <td>{{ child.n_passed }}</td>
-                    <td>{{ child.n_skipped }}</td>
-                    <td>{{ child.n_failed }}</td>
-                    <td>{{ child.n_errors }}</td>
-                    <td>{{ child.n_xpass }}</td>
-                    <td>{{ child.n_xfail }}</td>
-                </tr>
+                <tbody>
+                    <tr style="font-weight:bold" class="total">
+                        <td>Totals</td>
+                        <td class="rel_pass">{{ child.p_passed }}</td>
+                        <td>{{ child.n_passed }}</td>
+                        <td>{{ child.n_skipped }}</td>
+                        <td>{{ child.n_failed }}</td>
+                        <td>{{ child.n_errors }}</td>
+                        <td>{{ child.n_xpass }}</td>
+                        <td>{{ child.n_xfail }}</td>
+                    </tr>
+                </tbody>
             </table>
             {# Now recursively handle all the children #}
             {{ loop(child.children) }}

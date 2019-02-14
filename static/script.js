@@ -137,13 +137,14 @@ function init() {
 function sort_table(clicked, key_func) {
     var table = clicked.parentNode.parentNode.parentNode;
     var previous_sibling = table.previousSibling;
-    var rows = find_all('.results-table-row', table);
+    var rows = find_all('.results-table-row:not([do_not_remove])', table);
     var reversed = !clicked.classList.contains('asc');
     var sorted_rows = sort(rows, key_func, reversed);
     /* Whole table is removed here because browsers acts much slower
      * when appending existing elements.
      */
     var thead = find('thead', table);
+    var totals = find('.total', table);
     table.remove();
     var parent = document.createElement("table");
     parent.classList.add("results-table");
@@ -152,6 +153,7 @@ function sort_table(clicked, key_func) {
     sorted_rows.forEach(function(elem) {
         parent.appendChild(elem);
     });
+    parent.append(totals);
     previous_sibling.parentNode.insertBefore(parent, previous_sibling.nextSibling);
 }
 
@@ -266,7 +268,7 @@ function scroll_to(elem) {
     window.scrollBy({
         left: 0, 
         top: scroll_distance, 
-        behavior: "smooth"
+        behavior: "auto"
     });
 }
 
@@ -274,7 +276,7 @@ function scroll_to_top() {
     window.scrollTo({
         left: 0,
         top: 0,
-        behavior: "smooth"
+        behavior: "auto"
     });
 }
 
@@ -286,7 +288,7 @@ function scroll_to_parent(name) {
     window.scrollBy({
         left: 0,
         top: scroll_distance,
-        behavior: "smooth"
+        behavior: "auto"
     });
 }
 
