@@ -35,14 +35,21 @@ class Serialisable:
 
 class TestCollectionBase(Serialisable):
 
-    def __init__(self, tests):
+    def __init__(self, prefix, short_name, tests, parent):
         super().__init__()
         self.summarise_tests(tests)
+        self.prefix = prefix
+        self.short_name = short_name
+        self.parent_id = parent.id if parent is not None else ''
+        self.id = f'{prefix}-{short_name}'
 
     @property
     def flat_attrs(self):
         return [
-            'name',
+            'prefix',
+            'short_name',
+            'id',
+            'parent_id',
             'n_passed',
             'n_failed',
             'n_skipped',
@@ -50,9 +57,9 @@ class TestCollectionBase(Serialisable):
             'n_xfail',
             'n_xpass',
             'n_total',
+            'p_passed',
             'is_leaf',
-            'child_type',
-            'prefix'
+            'child_type'
         ]
 
     @property
@@ -75,20 +82,18 @@ class TestCollectionCollection(TestCollectionBase):
 
     is_leaf = 0
 
-    def __init__(self, prefix, name, tests, sort_by):
-        super().__init__(tests)
-        self.prefix = prefix
-        self.name = name
+    def __init__(self, prefix, short_name, tests, sort_by, parent=None):
+        super().__init__(prefix, short_name, tests, parent)
         sort_by_copy = sort_by.copy()
         sort_criteria = sort_by_copy.pop(0)
         sorted_tests = self.sort_tests(tests, sort_criteria)
         if sort_by_copy:
             self.children = [
-                TestCollectionCollection(sort_criteria, key, val, sort_by_copy) 
+                TestCollectionCollection(sort_criteria, key, val, sort_by_copy, parent=self) 
                 for key, val in sorted_tests.items()]
         else:
             self.children = [
-                TestCollection(sort_criteria, key, val) 
+                TestCollection(sort_criteria, key, val, parent=self) 
                 for key, val in sorted_tests.items()]
         self.child_type = sort_criteria
 
@@ -107,10 +112,8 @@ class TestCollection(TestCollectionBase):
 
     is_leaf = 1
 
-    def __init__(self, prefix, name, tests):
-        super().__init__(tests)
-        self.prefix = prefix
-        self.name = name
+    def __init__(self, prefix, short_name, tests, parent=None):
+        super().__init__(prefix, short_name, tests, parent)
         self.children = tests
         self.child_type = 'tests'
 
@@ -120,9 +123,9 @@ class TestCollectionFactory:
     @classmethod
     def build(cls, tests, sort_metadata):
         if sort_metadata:
-            return TestCollectionCollection('', 'Results', tests, sort_metadata)
+            return TestCollectionCollection('Results', 'Summary', tests, sort_metadata)
         else:
-            return TestCollection('', 'Results', tests)
+            return TestCollection('Results', 'Summary', tests)
 
 
 class TestResult(Serialisable):

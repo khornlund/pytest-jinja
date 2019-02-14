@@ -46,12 +46,12 @@ function sort_column(elem) {
     sort_table(elem, key(colIndex));
 }
 
-function show_all_extras() {
-    find_all('.col-result').forEach(show_extras);
+function show_all_extras(elem) {
+    find_all('.col-result', find_next("TABLE", elem)).forEach(show_extras);
 }
 
-function hide_all_extras() {
-    find_all('.col-result').forEach(hide_extras);
+function hide_all_extras(elem) {
+    find_all('.col-result', find_next("TABLE", elem)).forEach(hide_extras);
 }
 
 function show_extras(colresult_elem) {
@@ -80,8 +80,8 @@ function add_collapse() {
     // Add links for show/hide all
     find_all('table.results-table:not(.summary-table)').forEach(function(resulttable) {
         var showhideall = document.createElement("p");
-        showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
-            '<a href="javascript:hide_all_extras()">Hide all details</a>';
+        showhideall.innerHTML = '<a style="text-decoration:underline;cursor:pointer;" onclick="show_all_extras(this.parentElement)">Show all details</a> / ' +
+            '<a style="text-decoration:underline;cursor:pointer;" onclick="hide_all_extras(this.parentElement)">Hide all details</a>';
         resulttable.parentElement.insertBefore(showhideall, resulttable);
     });
 
@@ -130,18 +130,21 @@ function init() {
     });
 
     set_rel_class();
+
+    hide_all_extras();
 };
 
 function sort_table(clicked, key_func) {
     var table = clicked.parentNode.parentNode.parentNode;
     var previous_sibling = table.previousSibling;
-    var rows = find_all('.results-table-row', table);
+    var rows = find_all('.results-table-row:not([do_not_remove])', table);
     var reversed = !clicked.classList.contains('asc');
     var sorted_rows = sort(rows, key_func, reversed);
     /* Whole table is removed here because browsers acts much slower
      * when appending existing elements.
      */
     var thead = find('thead', table);
+    var totals = find('.total', table);
     table.remove();
     var parent = document.createElement("table");
     parent.classList.add("results-table");
@@ -150,6 +153,7 @@ function sort_table(clicked, key_func) {
     sorted_rows.forEach(function(elem) {
         parent.appendChild(elem);
     });
+    parent.append(totals);
     previous_sibling.parentNode.insertBefore(parent, previous_sibling.nextSibling);
 }
 
@@ -221,7 +225,7 @@ function toggle_sort_states(elem) {
 }
 
 function is_all_rows_hidden(value) {
-  return value.hidden == false;
+    return value.hidden == false;
 }
 
 function filter_table(elem) {
@@ -255,20 +259,6 @@ function update_check_boxes(checked_status, outcome) {
     });
 }
 
-
-function scroll_to_race(elem) {
-    var test_name = elem.innerHTML;
-    var table_id = "results-table-" + test_name;
-    var table = document.getElementById(table_id);
-    var scroll_distance = table.getBoundingClientRect().y;
-
-    window.scrollBy({
-        left: 0, 
-        top: scroll_distance - 300, 
-        behavior: "smooth"
-    });
-}
-
 function scroll_to(elem) {
     var id = elem.id;
     var heading_id = "#heading-" + id;
@@ -278,7 +268,7 @@ function scroll_to(elem) {
     window.scrollBy({
         left: 0, 
         top: scroll_distance, 
-        behavior: "smooth"
+        behavior: "auto"
     });
 }
 
@@ -286,11 +276,16 @@ function scroll_to_top() {
     window.scrollTo({
         left: 0,
         top: 0,
-        behavior: "smooth"
+        behavior: "auto"
     });
 }
 
 function scroll_to_parent(name) {
+    if (!name) {
+        scroll_to_top();
+        return;
+    }
+    
     var heading_id = "#heading-" + name;
     var heading = document.querySelector(heading_id);
     scroll_distance = heading.getBoundingClientRect().y;
@@ -298,7 +293,7 @@ function scroll_to_parent(name) {
     window.scrollBy({
         left: 0,
         top: scroll_distance,
-        behavior: "smooth"
+        behavior: "auto"
     });
 }
 
@@ -308,12 +303,9 @@ function set_rel_class() {
     rel_pass_elements.forEach(function(elem) {
         var rel_pass = parseFloat(elem.innerHTML);
 
-        if (rel_pass == 1) {
+        if (rel_pass == 100) {
             elem.classList.add("passed");
             elem.parentElement.classList.add("passed");
-        } else if (rel_pass < 0.85) {
-            elem.classList.add("failed");
-            elem.parentElement.classList.add("failed");
         } else {
             elem.classList.add("close-to-pass");
             elem.classList.add("failed");
