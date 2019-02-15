@@ -40,6 +40,9 @@ function sort_column(elem) {
         key = key_num;
     } else if (elem.classList.contains('result')) {
         key = key_result;
+    } else if (elem.classList.contains('custom')) {
+        key = key_custom;
+        key.name = "key_custom";
     } else {
         key = key_alpha;
     }
@@ -137,7 +140,7 @@ function init() {
 function sort_table(clicked, key_func) {
     var table = clicked.parentNode.parentNode.parentNode;
     var previous_sibling = table.previousSibling;
-    var rows = find_all('.results-table-row:not([do_not_remove])', table);
+    var rows = find_all('.results-table-row', table);
     var reversed = !clicked.classList.contains('asc');
     var sorted_rows = sort(rows, key_func, reversed);
     /* Whole table is removed here because browsers acts much slower
@@ -161,6 +164,7 @@ function sort_table(clicked, key_func) {
 }
 
 function sort(items, key_func, reversed) {
+
     var sort_array = items.map(function(item, i) {
         return [key_func(item), i];
     });
@@ -196,6 +200,27 @@ function key_result(col_index) {
                        'skipped', 'passed'];
         return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
     };
+}
+
+function key_custom(col_index) {
+    return function(elem) {
+        var strings = get_first_column_text(elem);
+        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    }
+}
+
+function get_first_column_text(elem) {
+    var strings = [];
+    var table = elem.parentElement;
+    var rows = find_all('.results-table-row', table);
+    rows.forEach(function(row) {
+        strings.push(row.childNodes[1].childNodes[1].firstChild.data);
+    });
+
+    strings = Array.from(new Set(strings));
+    strings.sort();
+
+    return strings;
 }
 
 function reset_sort_headers() {
