@@ -40,6 +40,9 @@ function sort_column(elem) {
         key = key_num;
     } else if (elem.classList.contains('result')) {
         key = key_result;
+    } else if (elem.classList.contains('custom')) {
+        key = key_custom;
+        key.name = "key_custom";
     } else {
         key = key_alpha;
     }
@@ -137,7 +140,7 @@ function init() {
 function sort_table(clicked, key_func) {
     var table = clicked.parentNode.parentNode.parentNode;
     var previous_sibling = table.previousSibling;
-    var rows = find_all('.results-table-row:not([do_not_remove])', table);
+    var rows = find_all('.results-table-row', table);
     var reversed = !clicked.classList.contains('asc');
     var sorted_rows = sort(rows, key_func, reversed);
     /* Whole table is removed here because browsers acts much slower
@@ -153,11 +156,15 @@ function sort_table(clicked, key_func) {
     sorted_rows.forEach(function(elem) {
         parent.appendChild(elem);
     });
-    parent.append(totals);
+    if (totals) {
+        parent.append(totals);
+        parent.classList.add("summary-table");
+    }
     previous_sibling.parentNode.insertBefore(parent, previous_sibling.nextSibling);
 }
 
 function sort(items, key_func, reversed) {
+
     var sort_array = items.map(function(item, i) {
         return [key_func(item), i];
     });
@@ -193,6 +200,27 @@ function key_result(col_index) {
                        'skipped', 'passed'];
         return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
     };
+}
+
+function key_custom(col_index) {
+    return function(elem) {
+        var strings = get_first_column_text(elem);
+        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    }
+}
+
+function get_first_column_text(elem) {
+    var strings = [];
+    var table = elem.parentElement;
+    var rows = find_all('.results-table-row', table);
+    rows.forEach(function(row) {
+        strings.push(row.childNodes[1].childNodes[1].firstChild.data);
+    });
+
+    strings = Array.from(new Set(strings));
+    strings.sort();
+
+    return strings;
 }
 
 function reset_sort_headers() {
@@ -250,15 +278,6 @@ function filter_table(elem) {
     }
 }
 
-function update_check_boxes(checked_status, outcome) {
-    var data_att = "[data-test-result='" + outcome + "']";
-    var check_boxes = document.querySelectorAll(data_att);
-
-    check_boxes.forEach(function(element) { 
-        element.checked = checked_status;
-    });
-}
-
 function scroll_to(elem) {
     var id = elem.id;
     var heading_id = "#heading-" + id;
@@ -285,7 +304,7 @@ function scroll_to_parent(name) {
         scroll_to_top();
         return;
     }
-    
+
     var heading_id = "#heading-" + name;
     var heading = document.querySelector(heading_id);
     scroll_distance = heading.getBoundingClientRect().y;
