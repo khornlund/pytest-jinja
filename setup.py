@@ -22,7 +22,7 @@ setup(
     url='https://github.com/khornlund/pytest-jinja',
     description='A simple plugin to use with pytest',
     long_description=read('README.rst'),
-    py_modules=['pytest_pytest_jinja'],
+    py_modules=['pytest_jinja'],
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     install_requires=['pytest>=3.5.0'],
     classifiers=[
@@ -45,7 +45,7 @@ setup(
     ],
     entry_points={
         'pytest11': [
-            'jinja = pytest_pytest_jinja',
+            'jinja = pytest_jinja.pytest_jinja',
         ],
     },
 )
