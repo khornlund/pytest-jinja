@@ -1,0 +1,17 @@
+{{ report_name }}
+
+Report generated at {{ time }}
+
+{% block environment %}
+{% endblock %}
+
+Results
+
+{% for child in children recursive %}
+
+{% if not child.is_leaf %}
+    # summary block
+    loop(child)
+{% else %}
+    # simple test results
+{% endif %}

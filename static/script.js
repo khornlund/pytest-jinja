@@ -24,6 +24,14 @@ function find_all(selector, elem) {
     return toArray(elem.querySelectorAll(selector));
 }
 
+function find_next(selector, elem) {
+    while (elem && elem.nodeName != selector) {
+        elem = elem.nextElementSibling;
+    }
+
+    return elem;
+}
+
 function sort_column(elem) {
     toggle_sort_states(elem);
     var colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
@@ -32,18 +40,21 @@ function sort_column(elem) {
         key = key_num;
     } else if (elem.classList.contains('result')) {
         key = key_result;
+    } else if (elem.classList.contains('custom')) {
+        key = key_custom;
+        key.name = "key_custom";
     } else {
         key = key_alpha;
     }
     sort_table(elem, key(colIndex));
 }
 
-function show_all_extras(table_id) {
-    find_all('.col-result', find('#' + table_id)).forEach(show_extras);
+function show_all_extras(elem) {
+    find_all('.col-result', find_next("TABLE", elem)).forEach(show_extras);
 }
 
-function hide_all_extras(table_id) {
-    find_all('.col-result', find('#' + table_id)).forEach(hide_extras);
+function hide_all_extras(elem) {
+    find_all('.col-result', find_next("TABLE", elem)).forEach(hide_extras);
 }
 
 function show_extras(colresult_elem) {
@@ -70,10 +81,10 @@ function show_filters() {
 
 function add_collapse() {
     // Add links for show/hide all
-    find_all('table.results-table').forEach(function(resulttable) {
+    find_all('table.results-table:not(.summary-table)').forEach(function(resulttable) {
         var showhideall = document.createElement("p");
-        showhideall.innerHTML = '<a href="javascript:show_all_extras(\'' + resulttable.id + '\')">Show all details</a> / ' +
-            '<a href="javascript:hide_all_extras(\'' + resulttable.id + '\')">Hide all details</a>';
+        showhideall.innerHTML = '<a style="text-decoration:underline;cursor:pointer;" onclick="show_all_extras(this.parentElement)">Show all details</a> / ' +
+            '<a style="text-decoration:underline;cursor:pointer;" onclick="hide_all_extras(this.parentElement)">Hide all details</a>';
         resulttable.parentElement.insertBefore(showhideall, resulttable);
     });
 
@@ -105,7 +116,7 @@ function get_query_parameter(name) {
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-function init () {
+function init() {
     reset_sort_headers();
 
     add_collapse();
@@ -121,6 +132,9 @@ function init () {
                               }, false)
     });
 
+    set_rel_class();
+
+    hide_all_extras();
 };
 
 function sort_table(clicked, key_func) {
@@ -133,17 +147,24 @@ function sort_table(clicked, key_func) {
      * when appending existing elements.
      */
     var thead = find('thead', table);
+    var totals = find('.total', table);
     table.remove();
     var parent = document.createElement("table");
+    parent.classList.add("results-table");
     parent.id = table.id;
     parent.appendChild(thead);
     sorted_rows.forEach(function(elem) {
         parent.appendChild(elem);
     });
+    if (totals) {
+        parent.append(totals);
+        parent.classList.add("summary-table");
+    }
     previous_sibling.parentNode.insertBefore(parent, previous_sibling.nextSibling);
 }
 
 function sort(items, key_func, reversed) {
+
     var sort_array = items.map(function(item, i) {
         return [key_func(item), i];
     });
@@ -175,10 +196,31 @@ function key_num(col_index) {
 
 function key_result(col_index) {
     return function(elem) {
-        var strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
-                       'Skipped', 'Passed'];
+        var strings = ['error', 'failed', 'rerun', 'xfailed', 'xpassed',
+                       'skipped', 'passed'];
         return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
     };
+}
+
+function key_custom(col_index) {
+    return function(elem) {
+        var strings = get_first_column_text(elem);
+        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    }
+}
+
+function get_first_column_text(elem) {
+    var strings = [];
+    var table = elem.parentElement;
+    var rows = find_all('.results-table-row', table);
+    rows.forEach(function(row) {
+        strings.push(row.childNodes[1].childNodes[1].firstChild.data);
+    });
+
+    strings = Array.from(new Set(strings));
+    strings.sort();
+
+    return strings;
 }
 
 function reset_sort_headers() {
@@ -211,23 +253,84 @@ function toggle_sort_states(elem) {
 }
 
 function is_all_rows_hidden(value) {
-  return value.hidden == false;
+    return value.hidden == false;
 }
 
 function filter_table(elem) {
     var outcome_att = "data-test-result";
     var outcome = elem.getAttribute(outcome_att);
     var class_outcome = outcome + " results-table-row";
-    var prefix_id = elem.getAttribute("data-prefix-id");
-    var table = find("#" + prefix_id + "results-table");
-    var outcome_rows = table.getElementsByClassName(class_outcome);
+    var suffix_id = elem.getAttribute("data-suffix-id");
+    var table = find_next("TABLE", elem);
+
+    var outcome_rows = Array.from(table.getElementsByClassName(class_outcome));
 
     for(var i = 0; i < outcome_rows.length; i++){
         outcome_rows[i].hidden = !elem.checked;
     }
 
-    var rows = find_all('.results-table-row', table).filter(is_all_rows_hidden);
+
+    var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
     var all_rows_hidden = rows.length == 0 ? true : false;
-    var not_found_message = document.getElementById(prefix_id + "not-found-message");
-    not_found_message.hidden = !all_rows_hidden;
+    var not_found_message = document.getElementById("not-found-message" + suffix_id);
+    if (not_found_message) {
+        not_found_message.hidden = !all_rows_hidden;
+    }
+}
+
+function scroll_to(elem) {
+    var id = elem.id;
+    var heading_id = "#heading-" + id;
+    var heading = document.querySelector(heading_id);
+    var scroll_distance = heading.getBoundingClientRect().y;
+
+    window.scrollBy({
+        left: 0, 
+        top: scroll_distance, 
+        behavior: "auto"
+    });
+}
+
+function scroll_to_top() {
+    window.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: "auto"
+    });
+}
+
+function scroll_to_parent(name) {
+    if (!name) {
+        scroll_to_top();
+        return;
+    }
+
+    var heading_id = "#heading-" + name;
+    var heading = document.querySelector(heading_id);
+    scroll_distance = heading.getBoundingClientRect().y;
+
+    window.scrollBy({
+        left: 0,
+        top: scroll_distance,
+        behavior: "auto"
+    });
+}
+
+function set_rel_class() {
+    var rel_pass_elements = document.querySelectorAll(".rel_pass");
+
+    rel_pass_elements.forEach(function(elem) {
+        var rel_pass = parseFloat(elem.innerHTML);
+
+        if (rel_pass == 100) {
+            elem.classList.add("passed");
+            elem.parentElement.classList.add("passed");
+        } else {
+            elem.classList.add("close-to-pass");
+            elem.classList.add("failed");
+            elem.parentElement.classList.add("failed");
+        }
+
+        elem.classList.remove("rel_pass");
+    });
 }
